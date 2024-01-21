@@ -1,13 +1,13 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import get from "lodash/get";
 import { useQuery } from "@apollo/client";
+import get from "lodash/get";
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import RoomIcon from "@material-ui/icons/Room";
 
 import { CURRENT_WEATHER_BY_CITY } from "Queries/Weather";
-import RoomIcon from "@material-ui/icons/Room";
 import { GoogleMap } from "Components/Weather/GoogleMap";
 
 const useStyles = makeStyles((theme) => ({

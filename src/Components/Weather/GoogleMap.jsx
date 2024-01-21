@@ -7,7 +7,7 @@ export const GoogleMap = ({ center, zoom, geo_lat, geo_lon, children }) => {
   return (
     <GoogleMapReact
       bootstrapURLKeys={{
-        key: process.env.GOOGLE_MAP_API_KEY || "",
+        key: "AIzaSyAPKgh62z98ndo0oHyZF6SqNb-2EsxwmHI",
       }}
       defaultCenter={center}
       defaultZoom={zoom}

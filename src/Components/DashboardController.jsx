@@ -1,8 +1,8 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import { Routes, Route } from "react-router-dom";
 
 import { DashboardHeader } from "Components/Headers/DashboardHeader";
 import { PageFooter } from "Components/Layouts/Footer";
