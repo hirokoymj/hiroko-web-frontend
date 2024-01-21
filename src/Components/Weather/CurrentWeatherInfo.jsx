@@ -7,8 +7,8 @@ import { useQuery } from "@apollo/client";
 import Typography from "@material-ui/core/Typography";
 
 import { CURRENT_WEATHER_BY_CITY } from "Queries/Weather";
-// import RoomIcon from "@material-ui/icons/Room";
-// import { GoogleMap } from "Components/Weather/GoogleMap";
+import RoomIcon from "@material-ui/icons/Room";
+import { GoogleMap } from "Components/Weather/GoogleMap";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
   },
   weatherInfo: {
     height: "auto",
-    padding: "8px",
+    padding: theme.spacing(3),
+    textAlign: "center",
   },
 }));
 
@@ -43,8 +44,8 @@ export const CurrentWeatherInfo = ({ city = "tokyo" }) => {
   const { cityInfo, weather } =
     !loading && get(data, "currentWeatherByCity", {});
 
-  // const lat = parseFloat(get(cityInfo, "lat", 0));
-  // const lon = parseFloat(get(cityInfo, "lon", 0));
+  const lat = parseFloat(get(cityInfo, "lat", 0));
+  const lon = parseFloat(get(cityInfo, "lon", 0));
   const cityCountry = get(cityInfo, "name") + ", " + get(cityInfo, "country");
   const icon = get(weather, "icon");
   const temp = Math.ceil(get(weather, "temperature.day")) + `${"\u00b0"}C`;
@@ -71,7 +72,12 @@ export const CurrentWeatherInfo = ({ city = "tokyo" }) => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <div style={{ display: "flex", marginBottom: "16px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      marginBottom: "16px",
+                      justifyContent: "center",
+                    }}>
                     <img
                       src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
                       width="50"
@@ -94,12 +100,10 @@ export const CurrentWeatherInfo = ({ city = "tokyo" }) => {
               style={{
                 height: "100%",
                 width: "100%",
-                border: "1px solid green",
               }}>
-              GOOGLE MAP
-              {/* <GoogleMap geo_lat={lat} geo_lon={lon}>
+              <GoogleMap geo_lat={lat} geo_lon={lon}>
                 <RoomIcon color="error" fontSize="large" lat={lat} lng={lon} />
-              </GoogleMap> */}
+              </GoogleMap>
             </div>
           </Grid>
         </Grid>

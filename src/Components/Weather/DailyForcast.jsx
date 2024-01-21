@@ -20,7 +20,7 @@ import { DailyForecastSkeleton } from "Components/Skeleton/WeatherSkeleton";
 const useStyles = makeStyles(() => ({
   forecastDate: {
     width: "20%",
-    textAlign: "left",
+    textAlign: "center",
   },
   weather: {
     width: "20%",
