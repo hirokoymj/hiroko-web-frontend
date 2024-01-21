@@ -5,7 +5,6 @@ import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -119,14 +118,7 @@ export const DashboardHeader = ({
             )}>
             <MenuIcon />
           </IconButton>
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.title}>
-            Dashboard
-          </Typography>
+          <Logo />
         </Toolbar>
       </AppBar>
       <Drawer
@@ -136,8 +128,6 @@ export const DashboardHeader = ({
         }}
         open={open}>
         <div className={classes.toolbarIcon}>
-          <Logo />
-
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>

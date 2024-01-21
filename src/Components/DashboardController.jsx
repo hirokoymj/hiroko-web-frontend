@@ -4,9 +4,9 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import { Routes, Route } from "react-router-dom";
 
-import { DailyForecast } from "Components/Weather/DailyForcast";
 import { DashboardHeader } from "Components/Headers/DashboardHeader";
 import { PageFooter } from "Components/Layouts/Footer";
+import { WeatherView } from "Containers/WeatherView";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,10 +65,10 @@ export const DashboardController = () => {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Routes>
-              <Route path="/" element={<DailyForecast />} />
+              <Route path="/" element={<WeatherView />} />
             </Routes>
           </Grid>
-          <Grid xs={12}>
+          <Grid item xs={12}>
             <PageFooter />
           </Grid>
         </Container>

@@ -1,10 +1,10 @@
 import React from "react";
-import { makeStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   logo: {
     textDecoration: "none !important",
   },
@@ -12,13 +12,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontWeight: 700,
     fontSize: "1.5rem",
-    color: theme.palette.secondary.dark,
+    color: theme.palette.primary.contrastText,
   },
   lightFont: {
     fontFamily: ["Roboto", "sans-serif"].join(","),
-    fontWeight: 300,
+    fontWeight: 400,
     fontSize: "1.5rem",
-    color: theme.palette.primary.dark,
+    color: theme.palette.primary.contrastText,
   },
 }));
 

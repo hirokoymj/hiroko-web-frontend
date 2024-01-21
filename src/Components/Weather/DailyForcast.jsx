@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import red from "@material-ui/core/colors/red";
 import blue from "@material-ui/core/colors/blue";
 import Grid from "@material-ui/core/Grid";
+import Link from "@material-ui/core/Link";
 
 import { DAILY_FORECAST } from "Queries/Weather.js";
 import { DailyForecastSkeleton } from "Components/Skeleton/WeatherSkeleton";
@@ -44,13 +45,12 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
   },
   root: {
-    justifyContent: "center",
+    // justifyContent: "center",
   },
 }));
 
-export const DailyForecast = (props) => {
+export const DailyForecast = ({ city = "tokyo", unit }) => {
   const classes = useStyles();
-  const { city = "tokyo", unit } = props;
   const { data, loading } = useQuery(DAILY_FORECAST, {
     variables: {
       city,
@@ -88,58 +88,94 @@ export const DailyForecast = (props) => {
       {loading ? (
         <DailyForecastSkeleton />
       ) : (
-        <Grid item xs={12}>
-          <Paper>
-            <List>
-              <ListItem dense divider>
-                <ListItemText primary="Date" className={classes.forecastDate} />
-                <ListItemText primary="Weather" className={classes.weather} />
-                <ListItemText primary="High" className={classes.tempHigh} />
-                <ListItemText primary="Low" className={classes.tempLow} />
-                <ListItemText primary="Rain" className={classes.rain} />
-                <ListItemText primary="Humidity" className={classes.humidity} />
-              </ListItem>
-              {mappedData.map(
-                ({ dt, condition, icon, min, max, rain, humidity }, index) => {
-                  return (
-                    <ListItem
-                      divider={index !== mappedDataLen - 1 ? true : false}
-                      dense
-                      key={dt}>
-                      <ListItemText
-                        primary={format(new Date(dt * 1000), "iii, MM/dd")}
-                        className={classes.forecastDate}
-                      />
-                      <ListItemText className={classes.weather}>
-                        {icon && (
-                          <img
-                            src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-                            width="50"
-                            height="50"
-                            alt={condition}
-                          />
-                        )}
-                        <Typography variant="body1">{condition}</Typography>
-                      </ListItemText>
-                      <ListItemText className={classes.tempHigh}>
-                        {Math.ceil(max)}&deg;{unit_format}
-                      </ListItemText>
-                      <ListItemText className={classes.tempLow}>
-                        {Math.ceil(min)}&deg;{unit_format}
-                      </ListItemText>
-                      <ListItemText className={classes.rain}>
-                        {Math.ceil(rain)}&#37;
-                      </ListItemText>
-                      <ListItemText className={classes.humidity}>
-                        {humidity} %
-                      </ListItemText>
-                    </ListItem>
-                  );
-                }
-              )}
-            </List>
-          </Paper>
-        </Grid>
+        <div>
+          {" "}
+          <Grid container alignItems="baseline">
+            <Grid item xs={6}>
+              {" "}
+              <Typography component="h2" variant="h5" gutterBottom>
+                7 days forecast
+              </Typography>
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              justifyContent="flex-end"
+              style={{ display: "flex" }}>
+              <Typography variant="body1" component="span" gutterBottom>
+                Source:{" "}
+              </Typography>
+              <Link
+                href="https://openweathermap.org/api"
+                variant="body1"
+                target="_blank"
+                rel="noreferrer">
+                OpenWeather
+              </Link>
+            </Grid>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper>
+              <List>
+                <ListItem dense divider>
+                  <ListItemText
+                    primary="Date"
+                    className={classes.forecastDate}
+                  />
+                  <ListItemText primary="Weather" className={classes.weather} />
+                  <ListItemText primary="High" className={classes.tempHigh} />
+                  <ListItemText primary="Low" className={classes.tempLow} />
+                  <ListItemText primary="Rain" className={classes.rain} />
+                  <ListItemText
+                    primary="Humidity"
+                    className={classes.humidity}
+                  />
+                </ListItem>
+                {mappedData.map(
+                  (
+                    { dt, condition, icon, min, max, rain, humidity },
+                    index
+                  ) => {
+                    return (
+                      <ListItem
+                        divider={index !== mappedDataLen - 1 ? true : false}
+                        dense
+                        key={dt}>
+                        <ListItemText
+                          primary={format(new Date(dt * 1000), "iii, MM/dd")}
+                          className={classes.forecastDate}
+                        />
+                        <ListItemText className={classes.weather}>
+                          {icon && (
+                            <img
+                              src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+                              width="50"
+                              height="50"
+                              alt={condition}
+                            />
+                          )}
+                          <Typography variant="body1">{condition}</Typography>
+                        </ListItemText>
+                        <ListItemText className={classes.tempHigh}>
+                          {Math.ceil(max)}&deg;{unit_format}
+                        </ListItemText>
+                        <ListItemText className={classes.tempLow}>
+                          {Math.ceil(min)}&deg;{unit_format}
+                        </ListItemText>
+                        <ListItemText className={classes.rain}>
+                          {Math.ceil(rain)}&#37;
+                        </ListItemText>
+                        <ListItemText className={classes.humidity}>
+                          {humidity} %
+                        </ListItemText>
+                      </ListItem>
+                    );
+                  }
+                )}
+              </List>
+            </Paper>
+          </Grid>
+        </div>
       )}
     </>
   );
