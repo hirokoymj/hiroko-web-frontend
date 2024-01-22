@@ -42,7 +42,7 @@ export const PageFooter = () => {
       </Typography>
       <IconButtonLink
         icon={<GitHubIcon fontSize="large" />}
-        to="https://github.com/hirokoymj/hiroko-frontend"
+        to="https://github.com/hirokoymj/hiroko-web-frontend"
       />
     </footer>
   );
