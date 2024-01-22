@@ -3,8 +3,8 @@
 This is the code repository of my portfolio website.
 
 - Live URL: https://www.hirokoymj.com
-- GraphQL Backend API: https://hiroko-web-backend-new-08d39ee2590b.herokuapp.com/
-- GraphQL repository for www.hirokoymj.com: https://github.com/hirokoymj/hiroko-web-backend-new
+- GraphQL Backend API URL: https://hiroko-web-backend-new-08d39ee2590b.herokuapp.com/
+- GraphQL Backend API code: https://github.com/hirokoymj/hiroko-web-backend-new
 
 ## Technologies
 
@@ -26,3 +26,5 @@ This is the code repository of my portfolio website.
 - App Name:
   - hiroko-web-frontend
   - hiroko-web-backend-new
+
+## History
