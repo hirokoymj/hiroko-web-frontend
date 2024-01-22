@@ -57,10 +57,10 @@ export const CurrentWeatherInfo = ({ city = "tokyo" }) => {
   return (
     <>
       {loading ? (
-        "skelton"
+        "loading"
       ) : (
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <Paper className={classes.weatherInfo}>
               <Grid container>
                 <Grid item xs={12}>
@@ -95,7 +95,7 @@ export const CurrentWeatherInfo = ({ city = "tokyo" }) => {
               </Grid>
             </Paper>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={7}>
             <div
               style={{
                 height: "100%",

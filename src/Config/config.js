@@ -11,4 +11,14 @@ export const config = {
     lat: 34.052231,
     lon: -118.243683,
   },
+
+  TabNames: {
+    React: "React.js",
+    JavaScript: "JavaScript",
+    GraphQL: "GraphQL",
+    Git: "Git",
+    HTMLCSS: "HTML/CSS",
+    TypeScript: "TypeScript",
+    Miscellaneous: "Miscellaneous",
+  },
 };

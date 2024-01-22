@@ -17,18 +17,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-type Props = {
-  icon: React.ReactNode;
-  text: string;
-  to: string;
-};
-export const ListItemLink = (props: Props) => {
-  const { icon, text, to } = props;
+export const ListItemLink = ({ icon, text, to }) => {
   const classes = useStyles();
 
   const renderLink = React.useMemo(
     () =>
-      React.forwardRef<HTMLAnchorElement>((itemProps, ref) => (
+      React.forwardRef((itemProps, ref) => (
         <RouterLink to={to} {...itemProps} ref={ref} />
       )),
     [to]

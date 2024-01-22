@@ -1,36 +1,25 @@
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "Styles/ThemeProvider";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
+// import { ReduxProvider } from "./Redux/ReduxProvider";
 import { DashboardController } from "Components/DashboardController";
 
-export default function App() {
+const client = new ApolloClient({
+  uri: "https://hiroko-web-backend-new-08d39ee2590b.herokuapp.com/",
+  cache: new InMemoryCache(),
+});
+
+const App = () => {
   return (
-    <ThemeProvider>
-      <BrowserRouter>
-        <DashboardController />
-      </BrowserRouter>
-    </ThemeProvider>
+    <ApolloProvider client={client}>
+      <ThemeProvider>
+        <BrowserRouter>
+          <DashboardController />
+        </BrowserRouter>
+      </ThemeProvider>
+    </ApolloProvider>
   );
-}
+};
 
-// function Users() {
-//   return (
-//     <div>
-//       <nav>
-//         <Link to="me">My Profile</Link>
-//       </nav>
-
-//       <Routes>
-//         <Route path=":id" element={<UserProfile />} />
-//         <Route path="me" element={<OwnUserProfile />} />
-//       </Routes>
-//     </div>
-//   );
-// }
-
-// const UserProfile = () => {
-//   return <div>User Profile</div>;
-// };
-
-// const OwnUserProfile = () => {
-//   return <div>OwnUserProfile</div>;
-// };
+export default App;

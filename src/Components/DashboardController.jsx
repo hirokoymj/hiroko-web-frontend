@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import { DashboardHeader } from "Components/Headers/DashboardHeader";
 import { PageFooter } from "Components/Layouts/Footer";
 import { WeatherView } from "Containers/WeatherView";
+import { TechTabs } from "Containers/TechTabs";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,6 +67,7 @@ export const DashboardController = () => {
           <Grid container spacing={3}>
             <Routes>
               <Route path="/" element={<WeatherView />} />
+              <Route path="tech/*" element={<TechTabs />} />
             </Routes>
           </Grid>
           <Grid item xs={12}>
