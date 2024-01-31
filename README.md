@@ -24,13 +24,21 @@
 - Weather API
 - Typescript
 
-## Heroku Deployment Platform
+**Deployment - Heroku**
 
-- Region: United States
-- Plan: Basic (Max of $7.00/month)
-- Runtime: Node.js
-- App Name: hiroko-web-frontend
-- Features: Heroku CLI, Custom Domain, Automated certificate Management
+|          | Description                                |
+| -------- | ------------------------------------------ |
+| Region   | United States                              |
+| Plan     | Basic (Max of $7.00/month)                 |
+| Runtime  | Node.js                                    |
+| App Name | hiroko-web-frontend                        |
+| Features | Heroku CLI, Custom Domain, SSL certificate |
+
+**Google Cloud (GCP)**
+
+| Service        | Description                   |
+| -------------- | ----------------------------- |
+| Google Map API | Managing a Google Map API key |
 
 ## References:
 
