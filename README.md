@@ -6,17 +6,17 @@
 
 ## Technologies
 
-**Front-End technology**
+**Front-End**
 
 - React.js
 - Redux Toolkit
+- JavaScript
 - Apollo Client v3
 - React Router v6
 - Matrial UI v4
-- Google Map API on Google Cloud Platform
-- JavaScript
+- Google Map API
 
-**Back-End technology**
+**Back-End**
 
 - Node.js
 - Apollo Server v3
@@ -34,7 +34,6 @@
 | App Name | hiroko-web-frontend                        |
 | Features | Heroku CLI, Custom Domain, SSL certificate |
 
-aaa
 **Google Cloud (GCP)**
 
 | Service        | Description                   |

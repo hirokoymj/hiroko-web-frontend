@@ -16,7 +16,7 @@ export const config = {
     React: "React.js",
     JavaScript: "JavaScript",
     GraphQL: "GraphQL",
-    Git: "Git",
+    Git: "Git Commands",
     HTMLCSS: "HTML/CSS",
     TypeScript: "TypeScript",
     Miscellaneous: "Miscellaneous",
