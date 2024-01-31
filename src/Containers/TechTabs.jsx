@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { TechView } from "Containers/TechView";
 import { makeStyles } from "@material-ui/core/styles";
-import { config } from "Config/config";
 import Paper from "@material-ui/core/Paper";
+import { useSelector, useDispatch } from "react-redux";
 
-const useStyles = makeStyles((theme) => ({
+import { setActiveTab } from "../Redux/tabSlice";
+import { config } from "Config/config";
+
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
@@ -17,16 +20,17 @@ const { TabNames } = config;
 
 export const TechTabs = () => {
   const classes = useStyles();
-  const [activeTab, setActiveTab] = useState(0);
+  const tab = useSelector((state) => state.tab.value);
+  const dispatch = useDispatch();
 
   const handleTabChange = (event, newValue) => {
-    setActiveTab(newValue);
+    dispatch(dispatch(setActiveTab(newValue)));
   };
 
   return (
     <Paper className={classes.root}>
       <Tabs
-        value={activeTab}
+        value={tab}
         onChange={handleTabChange}
         indicatorColor="primary"
         textColor="primary"

@@ -44,9 +44,6 @@ const useStyles = makeStyles(() => ({
     width: "15%",
     textAlign: "center",
   },
-  root: {
-    // justifyContent: "center",
-  },
 }));
 
 export const DailyForecast = ({ city = "tokyo", unit }) => {
@@ -89,29 +86,26 @@ export const DailyForecast = ({ city = "tokyo", unit }) => {
         <DailyForecastSkeleton />
       ) : (
         <div>
-          {" "}
-          <Grid container alignItems="baseline">
-            <Grid item xs={6}>
-              {" "}
-              <Typography component="h2" variant="h5" gutterBottom>
-                7 days forecast
-              </Typography>
-            </Grid>
+          <Grid item xs={12}>
             <Grid
-              item
-              xs={6}
-              justifyContent="flex-end"
-              style={{ display: "flex" }}>
-              <Typography variant="body1" component="span" gutterBottom>
-                Source:{" "}
+              container
+              justifyContent="space-between"
+              alignItems="baseline">
+              <Typography component="h2" variant="h5" gutterBottom>
+                7 days forecast{" "}
               </Typography>
-              <Link
-                href="https://openweathermap.org/api"
-                variant="body1"
-                target="_blank"
-                rel="noreferrer">
-                OpenWeather
-              </Link>
+              <span>
+                <Typography variant="body1" component="span" gutterBottom>
+                  Source:{" "}
+                </Typography>
+                <Link
+                  href="https://openweathermap.org/api"
+                  variant="body1"
+                  target="_blank"
+                  rel="noreferrer">
+                  OpenWeather
+                </Link>
+              </span>
             </Grid>
           </Grid>
           <Grid item xs={12}>

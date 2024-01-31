@@ -65,7 +65,6 @@ const TechCard = ({ mappedData }) => {
 
 export const TechView = () => {
   const { abbr } = useParams();
-  console.log(abbr);
   const { data, loading } = useQuery(TOPIC_BY_CATEGORY_ABBR, {
     variables: {
       abbr,
@@ -73,7 +72,6 @@ export const TechView = () => {
   });
 
   if (loading) console.log("loading");
-  console.log(data);
 
   const topics = !loading && get(data, "topicByCategoryAbbr", []);
 
