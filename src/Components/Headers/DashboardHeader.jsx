@@ -11,7 +11,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 import { Logo } from "Components/Layouts/Logo";
-import { LeftNavItems } from "Components/Lists/Navigations";
+import { MainNavItems, SecondaryNavItems } from "Components/Lists/Navigations";
 
 const drawerWidth = 240;
 
@@ -135,7 +135,11 @@ export const DashboardHeader = ({
         </div>
         <Divider />
         <List>
-          <LeftNavItems />
+          <MainNavItems />
+        </List>
+        <Divider />
+        <List>
+          <SecondaryNavItems />
         </List>
         <Divider />
       </Drawer>

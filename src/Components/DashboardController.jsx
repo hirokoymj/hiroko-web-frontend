@@ -8,6 +8,7 @@ import { DashboardHeader } from "Components/Headers/DashboardHeader";
 import { PageFooter } from "Components/Layouts/Footer";
 import { WeatherView } from "Containers/WeatherView";
 import { TechTabs } from "Containers/TechTabs";
+import { CategoryView } from "Containers/CategoryView";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,6 +69,7 @@ export const DashboardController = () => {
             <Routes>
               <Route path="/" element={<WeatherView />} />
               <Route path="tech/*" element={<TechTabs />} />
+              <Route path="categoryList/*" element={<CategoryView />} />
             </Routes>
           </Grid>
           <Grid item xs={12}>

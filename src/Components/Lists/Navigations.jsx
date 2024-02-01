@@ -2,11 +2,12 @@ import React from "react";
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import CloudOutlinedIcon from "@material-ui/icons/CloudOutlined";
 import { useDispatch } from "react-redux";
-import { ListItemLink } from "Components/Lists/ListItemLink";
+import ListSubheader from "@material-ui/core/ListSubheader";
 
+import { ListItemLink } from "Components/Lists/ListItemLink";
 import { setActiveTab } from "../../Redux/tabSlice";
 
-export const LeftNavItems = () => {
+export const MainNavItems = () => {
   const dispatch = useDispatch();
   return (
     <>
@@ -17,6 +18,29 @@ export const LeftNavItems = () => {
         icon={<DescriptionOutlinedIcon />}
         onClick={() => dispatch(setActiveTab(0))}
       />
+    </>
+  );
+};
+
+export const SecondaryNavItems = () => {
+  return (
+    <>
+      <ListSubheader inset>Admin menu</ListSubheader>
+      <ListItemLink
+        to="/categoryList"
+        text="Create Category"
+        icon={<DescriptionOutlinedIcon />}
+      />
+      {/* <ListItemLink
+        to="/"
+        text="Create Subcategory"
+        icon={<DescriptionOutlinedIcon />}
+      />
+      <ListItemLink
+        to="/"
+        text="Create a Link"
+        icon={<DescriptionOutlinedIcon />}
+      /> */}
     </>
   );
 };
