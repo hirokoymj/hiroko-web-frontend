@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { SimpleDrawer } from "Components/Dialog/SimpleDrawer";
-import { CategoryEditForm } from "./CategoryEditForm";
+import { CategoryEditForm } from "Containers/CategoryEditForm";
 import { useCategoryEditForm } from "Hooks/useCategoryEditForm";
 
 export const CategoryEditView = () => {

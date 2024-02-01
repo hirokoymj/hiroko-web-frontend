@@ -16,7 +16,7 @@ export const Title = ({ text }) => {
     <Typography
       component="h2"
       variant="h5"
-      color="secondary"
+      color="black"
       className={classes.sectionTitle}
       noWrap>
       {text}

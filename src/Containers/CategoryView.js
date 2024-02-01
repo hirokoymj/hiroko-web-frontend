@@ -7,11 +7,12 @@ import { useSnackbar } from "notistack";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 
+import { DELETE_CATEGORY } from "Mutations/Category";
 import { CategoryTable } from "Components/Tables/CategoryTable";
 import { AlertDialog } from "Components/Dialog/AlertDialog";
-import { DELETE_CATEGORY } from "Mutations/Category";
-import { CategoryForm } from "./CategoryForm";
-import { CategoryEditView } from "./CategoryEditView";
+import { Title } from "Components/Layouts/Title";
+import { CategoryForm } from "Containers/CategoryForm";
+import { CategoryEditView } from "Containers/CategoryEditView";
 
 export const CategoryView = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -51,6 +52,7 @@ export const CategoryView = () => {
       </Routes>
       <Grid container spacing={3} justifyContent="center">
         <Grid item xs={12}>
+          <Title text="Create Category" />
           <Paper>
             <CategoryForm />
           </Paper>
