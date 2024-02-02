@@ -2,12 +2,13 @@ import { useMutation } from "@apollo/client";
 import { useSnackbar } from "notistack";
 
 import { CREATE_CATEGORY } from "Mutations/Category";
-import { useNavigate } from "react-router";
+import { CATEGORIES } from "Queries/Category";
 
 export const useCategoryForm = () => {
   const { enqueueSnackbar } = useSnackbar();
-  const navigate = useNavigate();
-  const [createCategory] = useMutation(CREATE_CATEGORY);
+  const [createCategory] = useMutation(CREATE_CATEGORY, {
+    refetchQueries: [CATEGORIES],
+  });
 
   const onSubmit = async (values) => {
     try {
@@ -21,7 +22,6 @@ export const useCategoryForm = () => {
       enqueueSnackbar("New category has been created!", {
         variant: "success",
       });
-      navigate(0);
     } catch (e) {
       console.error(e);
     }

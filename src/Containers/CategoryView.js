@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { useSnackbar } from "notistack";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 
 import { DELETE_CATEGORY } from "Mutations/Category";
@@ -13,13 +13,15 @@ import { AlertDialog } from "Components/Dialog/AlertDialog";
 import { Title } from "Components/Layouts/Title";
 import { CategoryForm } from "Containers/CategoryForm";
 import { CategoryEditView } from "Containers/CategoryEditView";
+import { CATEGORIES } from "Queries/Category";
 
 export const CategoryView = () => {
   const { enqueueSnackbar } = useSnackbar();
-  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [categoryId, setCategoryId] = useState("");
-  const [deleteCategory] = useMutation(DELETE_CATEGORY);
+  const [deleteCategory] = useMutation(DELETE_CATEGORY, {
+    refetchQueries: [CATEGORIES],
+  });
 
   const handleClose = () => setOpen(false);
 
@@ -39,7 +41,6 @@ export const CategoryView = () => {
         variant: "success",
       });
       handleClose();
-      navigate(0);
     } catch (e) {
       console.error(e);
     }

@@ -7,18 +7,18 @@ import { UPDATE_CATEGORY } from "Mutations/Category";
 import { CATEGORY_BY_ID } from "Queries/Category";
 import { CATEGORIES } from "Queries/Category";
 
-export const useCategoryEditForm = (categoryId) => {
+export const useCategoryEditForm = (id) => {
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const [updateCategory] = useMutation(UPDATE_CATEGORY, {
-    refetchQueries: [{ query: CATEGORIES }],
+    refetchQueries: [CATEGORIES],
   });
   const { data, loading } = useQuery(CATEGORY_BY_ID, {
     variables: {
-      id: categoryId,
+      id,
     },
   });
-
+  if (!loading) console.log(data);
   const initialValues = !loading && {
     name: get(data, "categoryById.name", ""),
     abbr: get(data, "categoryById.abbr", ""),
@@ -29,7 +29,7 @@ export const useCategoryEditForm = (categoryId) => {
       const { name, abbr } = values;
       await updateCategory({
         variables: {
-          id: categoryId,
+          id,
           input: {
             name,
             abbr,
