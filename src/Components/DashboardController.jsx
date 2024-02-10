@@ -9,6 +9,8 @@ import { PageFooter } from "Components/Layouts/Footer";
 import { WeatherView } from "Containers/WeatherView";
 import { TechTabs } from "Containers/TechTabs";
 import { CategoryView } from "Containers/CategoryView";
+import { SubCategoryView } from "Containers/SubCategoryView";
+import { TopicView } from "Containers/TopicView";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,7 +55,6 @@ export const DashboardController = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -70,6 +71,8 @@ export const DashboardController = () => {
               <Route path="/" element={<WeatherView />} />
               <Route path="tech/*" element={<TechTabs />} />
               <Route path="categoryList/*" element={<CategoryView />} />
+              <Route path="subCategoryList/*" element={<SubCategoryView />} />
+              <Route path="topic/*" element={<TopicView />} />
             </Routes>
           </Grid>
           <Grid item xs={12}>

@@ -7,20 +7,20 @@ import { useSnackbar } from "notistack";
 import { Routes, Route } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 
-import { DELETE_CATEGORY } from "Mutations/Category";
 import { CategoryTable } from "Components/Tables/CategoryTable";
 import { AlertDialog } from "Components/Dialog/AlertDialog";
 import { Title } from "Components/Layouts/Title";
 import { CategoryForm } from "Containers/CategoryForm";
 import { CategoryEditView } from "Containers/CategoryEditView";
-import { CATEGORIES } from "Queries/Category";
+import { DELETE_CATEGORY } from "Mutations/Category";
+import { CATEGORY_ALL } from "Queries/Category";
 
 export const CategoryView = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = useState(false);
   const [categoryId, setCategoryId] = useState("");
   const [deleteCategory] = useMutation(DELETE_CATEGORY, {
-    refetchQueries: [CATEGORIES],
+    refetchQueries: [CATEGORY_ALL],
   });
 
   const handleClose = () => setOpen(false);

@@ -1,26 +1,31 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
+import get from "lodash/get";
 import map from "lodash/map";
 import { format } from "date-fns";
 
-import { CATEGORY_ALL } from "Queries/Category";
+import { SUB_CATEGORY_ALL } from "Queries/SubCategory";
 import { Table } from "Components/Tables/Table";
 import { ActionRouterButton } from "Components/Buttons/ActionRouterButton";
 import { ActionButton } from "Components/Buttons/ActionButton";
 
-export const CategoryTable = ({ openDialog }) => {
-  const { data, loading, error } = useQuery(CATEGORY_ALL);
+export const SubCategoryTable = ({ openDialog }) => {
+  const { data, loading, error } = useQuery(SUB_CATEGORY_ALL);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
+  console.log(data);
   const mappedData = map(
-    data.categoryAll,
-    ({ id, name, abbr, createdAt, updatedAt }) => {
+    data.subCategoryAll,
+    ({ id, name, order, category, createdAt, updatedAt }) => {
+      const categoryId = get(category, "id", "");
+      const categoryName = get(category, "name", "");
       const actions = (
         <>
           <ActionRouterButton
-            to={`/categoryList/${id}`}
-            title="Edit Category"
+            to={`/subCategoryList/${id}`}
+            title="Edit Sub Category"
             icon="edit"
           />
           <ActionButton onClick={() => openDialog(id)} icon="delete" />
@@ -32,10 +37,12 @@ export const CategoryTable = ({ openDialog }) => {
       return {
         id,
         name,
-        abbr,
+        order,
+        categoryId,
+        categoryName,
+        actions,
         created,
         updated,
-        actions,
       };
     }
   );
@@ -50,12 +57,16 @@ export const CategoryTable = ({ openDialog }) => {
           loading={loading}
           colmuns={[
             {
-              label: "Category",
+              label: "Sub Category",
               field: "name",
             },
             {
-              label: "Abbreviation",
-              field: "abbr",
+              label: "Category",
+              field: "categoryName",
+            },
+            {
+              label: "Order",
+              field: "order",
             },
             {
               label: "Created",

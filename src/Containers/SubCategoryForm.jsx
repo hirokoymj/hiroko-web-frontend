@@ -4,16 +4,21 @@ import { Button, Grid } from "@material-ui/core";
 import { FormProvider, useForm } from "react-hook-form";
 import Container from "@material-ui/core/Container";
 
-import { categoryFormSchema } from "./validation/formValidations";
-import { useCategoryForm } from "Hooks/useCategoryForm";
+import { subCategoryFormSchema } from "./validation/formValidations";
+import { useSubCategoryForm } from "Hooks/useSubCategoryForm";
 import { FormInputText } from "Components/Forms/FormInputText";
+import { FormInputDropdown } from "Components/Forms/FormInputDropdown";
 
-export const CategoryForm = () => {
+export const SubCategoryForm = () => {
+  const { onSubmit, category_options, loading } = useSubCategoryForm();
   const methods = useForm({
-    resolver: yupResolver(categoryFormSchema),
-    defaultValues: { name: "", abbr: "" },
+    resolver: yupResolver(subCategoryFormSchema),
+    defaultValues: {
+      categoryId: "",
+      name: "",
+      order: "",
+    },
   });
-  const { onSubmit } = useCategoryForm();
 
   const {
     handleSubmit,
@@ -30,10 +35,18 @@ export const CategoryForm = () => {
       <FormProvider {...methods}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <FormInputText label="Category name" name="name" />
+            <FormInputDropdown
+              name="categoryId"
+              label="Category"
+              options={category_options}
+              disabled={loading}
+            />
           </Grid>
           <Grid item xs={12}>
-            <FormInputText label="Abbreviation" name="abbr" />
+            <FormInputText label="Sub Category Name" name="name" />
+          </Grid>
+          <Grid item xs={12}>
+            <FormInputText label="Order" name="order" type="number" />
           </Grid>
           <Grid item xs={12}>
             <Button

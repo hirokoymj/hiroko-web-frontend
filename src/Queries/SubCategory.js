@@ -2,28 +2,28 @@ import { gql } from "@apollo/client";
 
 import { CategoryFragments } from "./CategoryFragments";
 
-export const SUB_CATEGORIES = gql`
-  query SubCategories($limit: Int, $cursor: String, $filter: [String]) {
-    subCategories(limit: $limit, cursor: $cursor, filter: $filter) {
-      subCategoryFeed {
-        id
-        name
-        order
-        createdAt
-        updatedAt
-        category {
-          ...CategoryInfo
-        }
-      }
-      totalCount
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
-    }
-  }
-  ${CategoryFragments.categoryInfo}
-`;
+// export const SUB_CATEGORIES = gql`
+//   query SubCategories($limit: Int, $cursor: String, $filter: [String]) {
+//     subCategories(limit: $limit, cursor: $cursor, filter: $filter) {
+//       subCategoryFeed {
+//         id
+//         name
+//         order
+//         createdAt
+//         updatedAt
+//         category {
+//           ...CategoryInfo
+//         }
+//       }
+//       totalCount
+//       pageInfo {
+//         endCursor
+//         hasNextPage
+//       }
+//     }
+//   }
+//   ${CategoryFragments.categoryInfo}
+// `;
 
 export const SUB_CATEGORY_BY_ID = gql`
   query SubCategoryById($id: ID!) {
@@ -44,6 +44,22 @@ export const SUB_CATEGORY_BY_ID = gql`
 export const SUB_CATEGORY_BY_CATEGORY = gql`
   query SubCategoryByCategory($categoryId: ID!) {
     subCategoryByCategory(categoryId: $categoryId) {
+      id
+      name
+      order
+      createdAt
+      updatedAt
+      category {
+        ...CategoryInfo
+      }
+    }
+  }
+  ${CategoryFragments.categoryInfo}
+`;
+
+export const SUB_CATEGORY_ALL = gql`
+  query SubCategoryAll {
+    subCategoryAll {
       id
       name
       order

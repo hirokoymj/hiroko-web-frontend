@@ -31,16 +31,16 @@ export const SecondaryNavItems = () => {
         text="Create Category"
         icon={<DescriptionOutlinedIcon />}
       />
-      {/* <ListItemLink
-        to="/"
+      <ListItemLink
+        to="/subCategoryList"
         text="Create Subcategory"
         icon={<DescriptionOutlinedIcon />}
       />
       <ListItemLink
-        to="/"
+        to="/topic"
         text="Create a Link"
         icon={<DescriptionOutlinedIcon />}
-      /> */}
+      />
     </>
   );
 };
