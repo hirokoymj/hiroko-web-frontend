@@ -14,7 +14,7 @@ export const CategoryEditView = () => {
 
   const onClose = () => {
     setOpen(false);
-    navigate("/categoryList");
+    navigate("/category");
   };
 
   return (

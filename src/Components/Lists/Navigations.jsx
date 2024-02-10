@@ -27,12 +27,12 @@ export const SecondaryNavItems = () => {
     <>
       <ListSubheader inset>Admin menu</ListSubheader>
       <ListItemLink
-        to="/categoryList"
+        to="/category"
         text="Create Category"
         icon={<DescriptionOutlinedIcon />}
       />
       <ListItemLink
-        to="/subCategoryList"
+        to="/subCategory"
         text="Create Subcategory"
         icon={<DescriptionOutlinedIcon />}
       />

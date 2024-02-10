@@ -15,7 +15,7 @@ export const SubCategoryEditView = () => {
 
   const onClose = () => {
     setOpen(false);
-    navigate("/subCategoryList");
+    navigate("/subCategory");
   };
   if (!loading) console.log(initialValues);
 

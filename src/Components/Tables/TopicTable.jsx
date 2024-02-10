@@ -36,7 +36,7 @@ export const TopicTable = ({ openDialog }) => {
       const actions = (
         <>
           <ActionRouterButton
-            to={`/topicList/${id}/${categoryId}`}
+            to={`/topic/${id}/${categoryId}`}
             title="Edit Topic"
             icon="edit"
           />

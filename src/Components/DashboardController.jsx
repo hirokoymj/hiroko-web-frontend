@@ -70,8 +70,8 @@ export const DashboardController = () => {
             <Routes>
               <Route path="/" element={<WeatherView />} />
               <Route path="tech/*" element={<TechTabs />} />
-              <Route path="categoryList/*" element={<CategoryView />} />
-              <Route path="subCategoryList/*" element={<SubCategoryView />} />
+              <Route path="category/*" element={<CategoryView />} />
+              <Route path="subCategory/*" element={<SubCategoryView />} />
               <Route path="topic/*" element={<TopicView />} />
             </Routes>
           </Grid>

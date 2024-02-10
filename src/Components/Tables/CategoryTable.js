@@ -19,7 +19,7 @@ export const CategoryTable = ({ openDialog }) => {
       const actions = (
         <>
           <ActionRouterButton
-            to={`/categoryList/${id}`}
+            to={`/category/${id}`}
             title="Edit Category"
             icon="edit"
           />

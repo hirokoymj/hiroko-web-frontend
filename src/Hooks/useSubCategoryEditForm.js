@@ -27,7 +27,7 @@ export const useSubCategoryEditForm = (subCategoryId) => {
     order: get(data_sub_category, "subCategoryById.order", 1),
   };
 
-  const categories = !loading && get(data, "categories.categoryFeed", []);
+  const categories = !loading && get(data, "categoryAll", []);
   const category_options =
     !loading &&
     categories.map(({ id, name }) => {
@@ -53,7 +53,7 @@ export const useSubCategoryEditForm = (subCategoryId) => {
       enqueueSnackbar("Sub Category successfully updated!", {
         variant: "success",
       });
-      navigate("/subCategoryList");
+      navigate("/subCategory");
     } catch (e) {
       console.error(e);
       enqueueSnackbar("Failed to update sub category", {

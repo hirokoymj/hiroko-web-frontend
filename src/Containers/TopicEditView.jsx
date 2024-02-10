@@ -20,7 +20,7 @@ export const TopicEditView = () => {
 
   const onClose = () => {
     setOpen(false);
-    navigate("/topicList");
+    navigate("/topic");
   };
 
   return (

@@ -39,7 +39,7 @@ export const useCategoryEditForm = (id) => {
       enqueueSnackbar("Category successfully updated!", {
         variant: "success",
       });
-      navigate("/categoryList");
+      navigate("/category");
     } catch (e) {
       console.error(e);
       enqueueSnackbar("Failed to update category", {

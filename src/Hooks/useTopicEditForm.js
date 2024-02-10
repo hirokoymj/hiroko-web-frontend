@@ -38,11 +38,7 @@ export const useTopicEditForm = (topicId, categoryId) => {
     order: get(topicData, "topicById.order", 0),
   };
 
-  const category_options = makeDropdownOptions(
-    data,
-    "categories.categoryFeed",
-    loading
-  );
+  const category_options = makeDropdownOptions(data, "categoryAll", loading);
   const subCategory_options = makeDropdownOptions(
     subCategoryData,
     "subCategoryByCategory",
@@ -63,7 +59,7 @@ export const useTopicEditForm = (topicId, categoryId) => {
       enqueueSnackbar("Topic successfully updated!", {
         variant: "success",
       });
-      navigate("/topicList");
+      navigate("/topic");
     } catch (e) {
       console.error(e);
       enqueueSnackbar("Faild to update Topic.", {

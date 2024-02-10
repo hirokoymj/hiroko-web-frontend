@@ -24,7 +24,7 @@ export const SubCategoryTable = ({ openDialog }) => {
       const actions = (
         <>
           <ActionRouterButton
-            to={`/subCategoryList/${id}`}
+            to={`/subCategory/${id}`}
             title="Edit Sub Category"
             icon="edit"
           />
