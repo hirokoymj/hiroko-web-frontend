@@ -3,7 +3,7 @@ import { useSnackbar } from "notistack";
 
 import { CREATE_SUB_CATEGORY } from "Mutations/SubCategory";
 import { SUB_CATEGORY_ALL } from "Queries/SubCategory";
-import { CATEGORIES } from "Queries/Category";
+import { CATEGORY_ALL } from "Queries/Category";
 import { makeDropdownOptions } from "Components/FormController/common";
 
 export const useSubCategoryForm = () => {
@@ -12,12 +12,8 @@ export const useSubCategoryForm = () => {
     refetchQueries: [SUB_CATEGORY_ALL],
   });
 
-  const { data, loading } = useQuery(CATEGORIES);
-  const category_options = makeDropdownOptions(
-    data,
-    "categories.categoryFeed",
-    loading
-  );
+  const { data, loading } = useQuery(CATEGORY_ALL);
+  const category_options = makeDropdownOptions(data, "categoryAll", loading);
 
   const onSubmit = async (values) => {
     try {

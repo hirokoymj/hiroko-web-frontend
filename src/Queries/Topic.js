@@ -3,34 +3,6 @@ import { gql } from "@apollo/client";
 import { CategoryFragments } from "./CategoryFragments";
 import { SubCategoryFragments } from "./SubCategoryFragments";
 
-export const TOPICS = gql`
-  query Topics($limit: Int, $cursor: String, $filter: [String]) {
-    topics(limit: $limit, cursor: $cursor, filter: $filter) {
-      topicFeed {
-        id
-        title
-        url
-        category {
-          ...CategoryInfo
-        }
-        subCategory {
-          ...SubCategoryInfo
-        }
-        createdAt
-        updatedAt
-        order
-      }
-      totalCount
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
-    }
-  }
-  ${CategoryFragments.categoryInfo}
-  ${SubCategoryFragments.subCategoryInfo}
-`;
-
 export const TOPIC_BY_ID = gql`
   query TopicById($id: ID!) {
     topicById(id: $id) {
@@ -75,6 +47,27 @@ export const TOPIC_BY_CATEGORY_ABBR = gql`
       id
       title
       url
+      category {
+        ...CategoryInfo
+      }
+      subCategory {
+        ...SubCategoryInfo
+      }
+      order
+    }
+  }
+  ${CategoryFragments.categoryInfo}
+  ${SubCategoryFragments.subCategoryInfo}
+`;
+
+export const TOPIC_ALL = gql`
+  query TopicAll {
+    topicAll {
+      id
+      title
+      url
+      createdAt
+      updatedAt
       category {
         ...CategoryInfo
       }

@@ -2,8 +2,8 @@ import { useQuery, useMutation } from "@apollo/client";
 import { useSnackbar } from "notistack";
 
 import { CREATE_TOPIC } from "Mutations/Topic";
-import { CATEGORIES } from "Queries/Category";
-import { TOPICS } from "Queries/Topic";
+import { CATEGORY_ALL } from "Queries/Category";
+import { TOPIC_ALL } from "Queries/Topic";
 import { SUB_CATEGORY_BY_CATEGORY } from "Queries/SubCategory";
 import { makeDropdownOptions } from "Components/FormController/common";
 
@@ -12,17 +12,13 @@ export const useTopicForm = (categoryId) => {
 
   // Create Topic
   const [createTopic] = useMutation(CREATE_TOPIC, {
-    refetchQueries: [TOPICS],
+    refetchQueries: [TOPIC_ALL],
   });
   //
   // Category Dropdown
   //
-  const { data, loading } = useQuery(CATEGORIES);
-  const category_options = makeDropdownOptions(
-    data,
-    "categories.categoryFeed",
-    loading
-  );
+  const { data, loading } = useQuery(CATEGORY_ALL);
+  const category_options = makeDropdownOptions(data, "categoryAll", loading);
   //
   // SubCategory Dropdown
   //

@@ -1,96 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import get from "lodash/get";
 import map from "lodash/map";
 import Link from "@material-ui/core/Link";
-import Button from "@material-ui/core/Button";
-import { format } from "date-fns";
-import { makeStyles } from "@material-ui/core/styles";
 
-import { TOPICS } from "Queries/Topic";
+import { TOPIC_ALL } from "Queries/Topic";
 import { Table } from "Components/Tables/Table";
 import { ActionRouterButton } from "Components/Buttons/ActionRouterButton";
 import { ActionButton } from "Components/Buttons/ActionButton";
-// import { useCategoryFilterState } from "Components/Tables/hooks/useCategoryFilterState";
-// import { TableHead } from "Components/Tables/TableHead";
-
-const useStyles = makeStyles((theme) => ({
-  loadMoreButton: {
-    width: "30%",
-    margin: "auto",
-    marginTop: theme.spacing(3),
-    backgroundColor: theme.palette.secondary.main,
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-    },
-  },
-}));
-
-const useLoadMore = (loading, error, fetchMore, pageInfo) => {
-  const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const { hasNextPage, endCursor } = pageInfo;
-  const limit = 5;
-
-  const fetchMoreData = () => {
-    if (!loading && !error) {
-      if (hasNextPage) {
-        setIsLoadingMore(true);
-        fetchMore({
-          variables: { cursor: endCursor, limit },
-          updateQuery: (prevResult, { fetchMoreResult }) => {
-            fetchMoreResult.topics.topicFeed = [
-              ...prevResult.topics.topicFeed,
-              ...fetchMoreResult.topics.topicFeed,
-            ];
-            return fetchMoreResult;
-          },
-        });
-        setIsLoadingMore(false);
-      }
-    }
-  };
-
-  return { fetchMoreData, isLoadingMore, hasNextPage };
-};
 
 export const TopicTable = ({ openDialog }) => {
-  const classes = useStyles();
-  // const {
-  //   category_loading,
-  //   selectedFilters,
-  //   filters,
-  //   handleFilterChange,
-  //   handleDeleteFilter,
-  // } = useCategoryFilterState();
-  const { data, loading, error, fetchMore } = useQuery(TOPICS, {
-    variables: {
-      limit: 50,
-    },
-  });
+  const { data, loading, error } = useQuery(TOPIC_ALL);
 
-  const topics = !loading && get(data, "topics.topicFeed", []);
-  const pageInfo = !loading && get(data, "topics.pageInfo", {});
-  console.log("Load More");
-  console.log(pageInfo);
-  const { isLoadingMore, fetchMoreData, hasNextPage } = useLoadMore(
-    loading,
-    error,
-    fetchMore,
-    pageInfo
-  );
-
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
+  console.log(data);
   const mappedData = map(
-    topics,
-    ({
-      id,
-      title,
-      url,
-      category,
-      subCategory,
-      order,
-      createdAt,
-      updatedAt,
-    }) => {
+    data.topicAll,
+    ({ id, title, url, category, subCategory, order }) => {
       const categoryName = get(category, "name", "");
       const subCategoryName = get(subCategory, "name", "");
       const categoryId = get(category, "id", "");
@@ -116,8 +43,6 @@ export const TopicTable = ({ openDialog }) => {
           <ActionButton onClick={() => openDialog(id)} icon="delete" />
         </>
       );
-      const created = format(new Date(createdAt), "MM/dd/yyyy");
-      const updated = format(new Date(updatedAt), "MM/dd/yyyy");
 
       return {
         id,
@@ -125,8 +50,6 @@ export const TopicTable = ({ openDialog }) => {
         url,
         categoryName,
         subCategoryName,
-        created,
-        updated,
         actions,
         order,
       };
@@ -138,52 +61,34 @@ export const TopicTable = ({ openDialog }) => {
       {loading ? (
         <div>...loading</div>
       ) : (
-        <>
-          <Table
-            data={mappedData}
-            loading={loading}
-            hover={true}
-            colmuns={[
-              {
-                label: "Title",
-                field: "titleLink",
-              },
-              {
-                label: "Category",
-                field: "categoryName",
-              },
-              {
-                label: "Sub Category",
-                field: "subCategoryName",
-              },
-              {
-                label: "Order",
-                field: "order",
-              },
-              {
-                label: "Created",
-                field: "created",
-              },
-              {
-                label: "Updated",
-                field: "updated",
-              },
-              {
-                label: "Actions",
-                field: "actions",
-                align: "center",
-              },
-            ]}
-          />
-          <Button
-            onClick={fetchMoreData}
-            variant="contained"
-            color="primary"
-            disabled={!hasNextPage}
-            className={classes.loadMoreButton}>
-            {isLoadingMore ? "Loading" : "Loard More"}
-          </Button>
-        </>
+        <Table
+          data={mappedData}
+          loading={loading}
+          hover={true}
+          colmuns={[
+            {
+              label: "Category",
+              field: "categoryName",
+            },
+            {
+              label: "Sub Category",
+              field: "subCategoryName",
+            },
+            {
+              label: "Title",
+              field: "titleLink",
+            },
+            {
+              label: "Order",
+              field: "order",
+            },
+            {
+              label: "Actions",
+              field: "actions",
+              align: "center",
+            },
+          ]}
+        />
       )}
     </>
   );

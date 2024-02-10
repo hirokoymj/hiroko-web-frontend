@@ -55,7 +55,7 @@ export const SubCategoryView = () => {
       </Routes>
       <Grid container spacing={3} justifyContent="center">
         <Grid item xs={12}>
-          <Title text="Create a SubCategory" />
+          <Title text="Create SubCategory" />
           <Paper>{<SubCategoryForm />}</Paper>
         </Grid>
         <Grid item xs={12}>

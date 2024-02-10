@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 
 import { UPDATE_TOPIC } from "Mutations/Topic";
-import { CATEGORIES } from "Queries/Category";
+import { CATEGORY_ALL } from "Queries/Category";
 import { TOPIC_BY_ID } from "Queries/Topic";
 import { SUB_CATEGORY_BY_CATEGORY } from "Queries/SubCategory";
 import { makeDropdownOptions } from "Components/FormController/common";
@@ -13,7 +13,7 @@ export const useTopicEditForm = (topicId, categoryId) => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const [updateTopic] = useMutation(UPDATE_TOPIC);
-  const { data, loading } = useQuery(CATEGORIES);
+  const { data, loading } = useQuery(CATEGORY_ALL);
 
   const { data: subCategoryData, loading: subCategoryLoading } = useQuery(
     SUB_CATEGORY_BY_CATEGORY,

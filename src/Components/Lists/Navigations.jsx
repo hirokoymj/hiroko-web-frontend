@@ -38,7 +38,7 @@ export const SecondaryNavItems = () => {
       />
       <ListItemLink
         to="/topic"
-        text="Create a Link"
+        text="Create Links"
         icon={<DescriptionOutlinedIcon />}
       />
     </>

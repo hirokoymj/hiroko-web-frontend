@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 import { UPDATE_SUB_CATEGORY } from "Mutations/SubCategory";
 import { SUB_CATEGORY_BY_ID } from "Queries/SubCategory";
-import { CATEGORIES } from "Queries/Category";
+import { CATEGORY_ALL } from "Queries/Category";
 
 export const useSubCategoryEditForm = (subCategoryId) => {
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const [updateSubCategory] = useMutation(UPDATE_SUB_CATEGORY);
-  const { data, loading } = useQuery(CATEGORIES);
+  const { data, loading } = useQuery(CATEGORY_ALL);
   const { data: data_sub_category, loading: loading_sub_category } = useQuery(
     SUB_CATEGORY_BY_ID,
     {

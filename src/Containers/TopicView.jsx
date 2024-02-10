@@ -11,7 +11,7 @@ import { TopicTable } from "Components/Tables/TopicTable";
 import { AlertDialog } from "Components/Dialog/AlertDialog";
 import { Title } from "Components/Layouts/Title";
 import { DELETE_TOPIC } from "Mutations/Topic";
-import { TOPICS } from "Queries/Topic";
+import { TOPIC_ALL } from "Queries/Topic";
 import { TopicEditView } from "Containers/TopicEditView";
 import { TopicForm } from "Containers/TopicForm";
 
@@ -20,7 +20,7 @@ export const TopicView = () => {
   const [open, setOpen] = useState(false);
   const [topicId, setTopicId] = useState("");
   const [deleteTopic, { loading }] = useMutation(DELETE_TOPIC, {
-    refetchQueries: [TOPICS],
+    refetchQueries: [TOPIC_ALL],
   });
 
   const handleClose = () => setOpen(false);
@@ -53,7 +53,7 @@ export const TopicView = () => {
       </Routes>
       <Grid container spacing={3} justifyContent="center">
         <Grid item xs={12}>
-          <Title text="Create a Link" />
+          <Title text="Create Links" />
           <Paper>
             <TopicForm />
           </Paper>
