@@ -1,10 +1,9 @@
 import React from "react";
 import {
   FormControl,
-  InputLabel,
   MenuItem,
-  Select,
   FormHelperText,
+  TextField,
 } from "@material-ui/core";
 import { useFormContext, Controller } from "react-hook-form";
 
@@ -23,11 +22,12 @@ export const FormInputDropdown = ({
 
   return (
     <FormControl error={errors && !!errors[name]} fullWidth>
-      <InputLabel id="select-label">{label}</InputLabel>
       <Controller
         render={({ field }) => (
-          <Select
+          <TextField
             {...field}
+            select
+            label={label}
             onChange={(e) => {
               field.onChange(e);
               handleChange && handleChange(e);
@@ -42,7 +42,7 @@ export const FormInputDropdown = ({
                 {option.label}
               </MenuItem>
             ))}
-          </Select>
+          </TextField>
         )}
         control={control}
         name={name}
