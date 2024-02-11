@@ -60,7 +60,9 @@ export const CategoryView = () => {
         </Grid>
         <Grid item xs={12}>
           <Paper>
-            <CategoryTable openDialog={handleOpen} />
+            <Container maxWidth="lg">
+              <CategoryTable openDialog={handleOpen} />
+            </Container>
           </Paper>
         </Grid>
       </Grid>

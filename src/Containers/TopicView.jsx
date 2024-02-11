@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
+import { useSnackbar } from "notistack";
+import { Routes, Route } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { useSnackbar } from "notistack";
-import { Routes, Route } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 
 import { TopicTable } from "Components/Tables/TopicTable";
@@ -60,7 +60,9 @@ export const TopicView = () => {
         </Grid>
         <Grid item xs={12}>
           <Paper>
-            <TopicTable openDialog={handleOpen} />
+            <Container maxWidth="lg">
+              <TopicTable openDialog={handleOpen} />
+            </Container>
           </Paper>
         </Grid>
         <AlertDialog

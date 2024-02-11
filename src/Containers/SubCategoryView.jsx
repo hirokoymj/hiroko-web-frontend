@@ -60,7 +60,9 @@ export const SubCategoryView = () => {
         </Grid>
         <Grid item xs={12}>
           <Paper>
-            <SubCategoryTable openDialog={handleOpen} />
+            <Container maxWidth="lg">
+              <SubCategoryTable openDialog={handleOpen} />
+            </Container>
           </Paper>
         </Grid>
       </Grid>

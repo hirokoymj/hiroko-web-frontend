@@ -12,12 +12,11 @@ import { ActionButton } from "Components/Buttons/ActionButton";
 export const SubCategoryTable = ({ openDialog }) => {
   const { data, loading, error } = useQuery(SUB_CATEGORY_ALL);
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  console.log(data);
+  const subCategoryData = !loading && get(data, "subCategoryAll", []);
   const mappedData = map(
-    data.subCategoryAll,
+    subCategoryData,
     ({ id, name, order, category, createdAt, updatedAt }) => {
       const categoryId = get(category, "id", "");
       const categoryName = get(category, "name", "");
@@ -48,42 +47,36 @@ export const SubCategoryTable = ({ openDialog }) => {
   );
 
   return (
-    <>
-      {loading ? (
-        <div>...loading</div>
-      ) : (
-        <Table
-          data={mappedData}
-          loading={loading}
-          colmuns={[
-            {
-              label: "Sub Category",
-              field: "name",
-            },
-            {
-              label: "Category",
-              field: "categoryName",
-            },
-            {
-              label: "Order",
-              field: "order",
-            },
-            {
-              label: "Created",
-              field: "created",
-            },
-            {
-              label: "Updated",
-              field: "updated",
-            },
-            {
-              label: "Actions",
-              field: "actions",
-              align: "center",
-            },
-          ]}
-        />
-      )}
-    </>
+    <Table
+      data={mappedData}
+      loading={loading}
+      colmuns={[
+        {
+          label: "Sub Category",
+          field: "name",
+        },
+        {
+          label: "Category",
+          field: "categoryName",
+        },
+        {
+          label: "Order",
+          field: "order",
+        },
+        {
+          label: "Created",
+          field: "created",
+        },
+        {
+          label: "Updated",
+          field: "updated",
+        },
+        {
+          label: "Actions",
+          field: "actions",
+          align: "center",
+        },
+      ]}
+    />
   );
 };

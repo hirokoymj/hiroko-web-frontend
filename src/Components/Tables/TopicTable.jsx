@@ -12,11 +12,11 @@ import { ActionButton } from "Components/Buttons/ActionButton";
 export const TopicTable = ({ openDialog }) => {
   const { data, loading, error } = useQuery(TOPIC_ALL);
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  console.log(data);
+
+  const topic_data = !loading && get(data, "topicAll", []);
   const mappedData = map(
-    data.topicAll,
+    topic_data,
     ({ id, title, url, category, subCategory, order }) => {
       const categoryName = get(category, "name", "");
       const subCategoryName = get(subCategory, "name", "");
@@ -57,39 +57,33 @@ export const TopicTable = ({ openDialog }) => {
   );
 
   return (
-    <>
-      {loading ? (
-        <div>...loading</div>
-      ) : (
-        <Table
-          data={mappedData}
-          loading={loading}
-          hover={true}
-          colmuns={[
-            {
-              label: "Category",
-              field: "categoryName",
-            },
-            {
-              label: "Sub Category",
-              field: "subCategoryName",
-            },
-            {
-              label: "Title",
-              field: "titleLink",
-            },
-            {
-              label: "Order",
-              field: "order",
-            },
-            {
-              label: "Actions",
-              field: "actions",
-              align: "center",
-            },
-          ]}
-        />
-      )}
-    </>
+    <Table
+      data={mappedData}
+      loading={loading}
+      hover={true}
+      colmuns={[
+        {
+          label: "Category",
+          field: "categoryName",
+        },
+        {
+          label: "Sub Category",
+          field: "subCategoryName",
+        },
+        {
+          label: "Title",
+          field: "titleLink",
+        },
+        {
+          label: "Order",
+          field: "order",
+        },
+        {
+          label: "Actions",
+          field: "actions",
+          align: "center",
+        },
+      ]}
+    />
   );
 };

@@ -9,6 +9,7 @@ import RoomIcon from "@material-ui/icons/Room";
 
 import { CURRENT_WEATHER_BY_CITY } from "Queries/Weather";
 import { GoogleMap } from "Components/Weather/GoogleMap";
+import { CurrentWeatherSkeleton } from "Components/Skeleton/WeatherSkeleton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,7 +58,7 @@ export const CurrentWeatherInfo = ({ city = "tokyo" }) => {
   return (
     <>
       {loading ? (
-        "loading"
+        <CurrentWeatherSkeleton />
       ) : (
         <Grid container spacing={3}>
           <Grid item xs={12} md={5}>

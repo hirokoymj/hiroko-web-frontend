@@ -8,18 +8,10 @@ import Grid from "@material-ui/core/Grid";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 import { TOPIC_BY_CATEGORY_ABBR } from "Queries/Topic";
-
-const useStyles = makeStyles((theme) => ({
-  linkRoot: {
-    "&:hover": {
-      backgroundColor: theme.palette.accent.main,
-    },
-  },
-}));
+import { TechCardSkeleton } from "Components/Skeleton/LoadingSkeleton";
 
 const ListItemLink = (props) => {
   return (
@@ -35,8 +27,6 @@ const ListItemLink = (props) => {
 };
 
 const TechCard = ({ mappedData }) => {
-  const classes = useStyles();
-
   return (
     <div>
       {mappedData.map((data, key) => {
@@ -47,10 +37,7 @@ const TechCard = ({ mappedData }) => {
             <List>
               {topicData.map((topic, key) => {
                 return (
-                  <ListItemLink
-                    href={topic.url}
-                    key={key}
-                    className={classes.linkRoot}>
+                  <ListItemLink href={topic.url} key={key}>
                     <ListItemText primary={topic.title} />
                   </ListItemLink>
                 );
@@ -70,8 +57,6 @@ export const TechView = () => {
       abbr,
     },
   });
-
-  if (loading) console.log("loading");
 
   const topics = !loading && get(data, "topicByCategoryAbbr", []);
 
@@ -95,9 +80,9 @@ export const TechView = () => {
       container
       spacing={3}
       justifyContent="center"
-      style={{ marginTop: "16px" }}>
+      style={{ margin: "16px 0" }}>
       <Grid item xs={12} md={8}>
-        {loading ? "loading" : <TechCard mappedData={mappedData} />}
+        {loading ? <TechCardSkeleton /> : <TechCard mappedData={mappedData} />}
       </Grid>
     </Grid>
   );
