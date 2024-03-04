@@ -54,7 +54,6 @@ export const DailyForecast = ({ city = "tokyo", unit }) => {
       unit,
     },
   });
-
   const { forecastList } = !loading && get(data, "dailyForecast", {});
 
   const mappedData = map(forecastList, (forecast) => {
@@ -151,13 +150,13 @@ export const DailyForecast = ({ city = "tokyo", unit }) => {
                           <Typography variant="body1">{condition}</Typography>
                         </ListItemText>
                         <ListItemText className={classes.tempHigh}>
-                          {Math.ceil(max)}&deg;{unit_format}
+                          {Math.round(max)}&deg;{unit_format}
                         </ListItemText>
                         <ListItemText className={classes.tempLow}>
-                          {Math.ceil(min)}&deg;{unit_format}
+                          {Math.round(min)}&deg;{unit_format}
                         </ListItemText>
                         <ListItemText className={classes.rain}>
-                          {Math.ceil(rain)}&#37;
+                          {Math.round(rain)}&#37;
                         </ListItemText>
                         <ListItemText className={classes.humidity}>
                           {humidity} %
