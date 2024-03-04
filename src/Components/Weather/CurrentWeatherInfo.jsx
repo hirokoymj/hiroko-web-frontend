@@ -49,7 +49,7 @@ export const CurrentWeatherInfo = ({ city = "tokyo" }) => {
   const lon = parseFloat(get(cityInfo, "lon", 0));
   const cityCountry = get(cityInfo, "name") + ", " + get(cityInfo, "country");
   const icon = get(weather, "icon");
-  const temp = Math.ceil(get(weather, "temperature.day")) + `${"\u00b0"}C`;
+  const temp = Math.round(get(weather, "temperature.day")) + `${"\u00b0"}C`;
   const text = `Feels like ${Math.ceil(
     get(weather, "feelsLike", 0)
   )} ${"\u00b0"}C. ${get(weather, "description")}.`;
