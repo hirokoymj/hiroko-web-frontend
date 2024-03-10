@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const CurrentWeatherInfo = ({ city = "tokyo" }) => {
+export const CurrentWeatherInfo = ({ city = "los angeles" }) => {
   const classes = useStyles();
   const { data, loading } = useQuery(CURRENT_WEATHER_BY_CITY, {
     variables: {

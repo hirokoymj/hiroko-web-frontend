@@ -22,10 +22,8 @@ const useStyles = makeStyles((theme) => ({
 
 export const WeatherView = () => {
   const classes = useStyles();
-  const { TOKYO_LOCATION } = config;
-  const [city] = useState(TOKYO_LOCATION.city);
-  console.log("WeatherView");
-  console.log(city);
+  const { LOS_ANGELES_LOCATION } = config;
+  const [city] = useState(LOS_ANGELES_LOCATION.city);
   return (
     <Container maxWidth="md">
       <Grid container className={classes.root} spacing={2}>
