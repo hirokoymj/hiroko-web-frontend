@@ -5,13 +5,14 @@ export const config = {
     city: "tokyo",
     lat: 35.689499,
     lon: 139.691711,
+    unit: "metric",
   },
   LOS_ANGELES_LOCATION: {
-    city: "Los Angeles",
-    lat: 34.052231,
-    lon: -118.243683,
+    city: "los angeles",
+    lat: 34.052,
+    lon: -118.244,
+    unit: "imperial",
   },
-
   TabNames: {
     React: "React.js",
     JavaScript: "JavaScript",

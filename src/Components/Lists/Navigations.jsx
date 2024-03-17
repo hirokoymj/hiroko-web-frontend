@@ -44,3 +44,16 @@ export const SecondaryNavItems = () => {
     </>
   );
 };
+
+export const ThirdNavItems = () => {
+  return (
+    <>
+      <ListSubheader inset>Admin menu</ListSubheader>
+      <ListItemLink
+        to="/category"
+        text="Create Category"
+        icon={<DescriptionOutlinedIcon />}
+      />
+    </>
+  );
+};

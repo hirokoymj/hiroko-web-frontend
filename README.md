@@ -1,8 +1,6 @@
 # hirokoymj.com
 
-- Live URL: https://www.hirokoymj.com
-- GraphQL Backend API URL: https://hiroko-web-backend-new-08d39ee2590b.herokuapp.com/
-- GraphQL Backend API code: https://github.com/hirokoymj/hiroko-web-backend-new
+- Live URL : https://www.hirokoymj.com
 
 ## Technologies
 
@@ -24,25 +22,27 @@
 - Weather API
 - Typescript
 
-**Deployment - Heroku**
+## Backend API
 
-|          | Description                                |
-| -------- | ------------------------------------------ |
-| Region   | United States                              |
-| Plan     | Basic (Max of $7.00/month)                 |
-| Runtime  | Node.js                                    |
-| App Name | hiroko-web-frontend                        |
-| Features | Heroku CLI, Custom Domain, SSL certificate |
+- GraphQL Backend URI: https://hiroko-web-backend-new-08d39ee2590b.herokuapp.com/
+- GraphQL Backend repository: https://github.com/hirokoymj/hiroko-web-backend-new
 
-**Google Cloud (GCP)**
+# Cloud Platform
 
-| Service        | Description                   |
-| -------------- | ----------------------------- |
-| Google Map API | Managing a Google Map API key |
+**Heroku**
 
-## References:
+|          | Description                             |
+| -------- | --------------------------------------- |
+| Region   | United States                           |
+| Plan     | Basic (Max of $7.00/month)              |
+| Runtime  | Node.js                                 |
+| App Name | hiroko-web-frontend, hiroko-web-backend |
+| Features | Heroku CLI, Custom Domain               |
 
-- https://redux.js.org/introduction/getting-started
+**Google Cloud**
+
+- Project Name: [hiroko-web](https://console.cloud.google.com/)
+- Generated Google MAP API key for hirokoymj.com
 
 ## History
 

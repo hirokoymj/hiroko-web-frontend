@@ -34,26 +34,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const CurrentWeatherInfo = ({ city = "los angeles" }) => {
+export const CurrentWeatherInfo = ({ city, unit }) => {
   const classes = useStyles();
   const { data, loading } = useQuery(CURRENT_WEATHER_BY_CITY, {
     variables: {
       city,
+      unit,
     },
   });
 
   const { cityInfo, weather } =
     !loading && get(data, "currentWeatherByCity", {});
-
   const lat = parseFloat(get(cityInfo, "lat", 0));
   const lon = parseFloat(get(cityInfo, "lon", 0));
   const cityCountry = get(cityInfo, "name") + ", " + get(cityInfo, "country");
   const icon = get(weather, "icon");
-  const temp = Math.round(get(weather, "temperature.day")) + `${"\u00b0"}C`;
-  const text = `Feels like ${Math.ceil(
-    get(weather, "feelsLike", 0)
-  )} ${"\u00b0"}C. ${get(weather, "description")}.`;
+  const temperature = Math.round(get(weather, "temperature.day"));
+  const feelslike = Math.ceil(get(weather, "feelsLike", 0));
+  const description = get(weather, "description");
   const humidity = `Humidity: ${get(weather, "humidity")}%`;
+  const unit_format = unit === "metric" ? "C" : "F";
 
   return (
     <>
@@ -86,11 +86,15 @@ export const CurrentWeatherInfo = ({ city = "los angeles" }) => {
                       alt=""
                       className={classes.weatherIcon}
                     />
-                    <Typography variant="h4">{temp}</Typography>
+                    <Typography variant="h4">
+                      {temperature}&deg;{unit_format}
+                    </Typography>
                   </div>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography variant="body1">{text}</Typography>
+                  <Typography variant="body1">
+                    Feels like {feelslike}&deg;{unit_format}. {description}
+                  </Typography>
                   <Typography variant="body1">{humidity}</Typography>
                 </Grid>
               </Grid>

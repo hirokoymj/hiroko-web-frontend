@@ -46,7 +46,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const DailyForecast = ({ city = "tokyo", unit }) => {
+export const DailyForecast = ({ city, unit }) => {
   const classes = useStyles();
   const { data, loading } = useQuery(DAILY_FORECAST, {
     variables: {
@@ -55,7 +55,7 @@ export const DailyForecast = ({ city = "tokyo", unit }) => {
     },
   });
   const { forecastList } = !loading && get(data, "dailyForecast", {});
-
+  console.log(data);
   const mappedData = map(forecastList, (forecast) => {
     const {
       dt,

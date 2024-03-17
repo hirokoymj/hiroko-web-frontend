@@ -24,14 +24,15 @@ export const WeatherView = () => {
   const classes = useStyles();
   const { LOS_ANGELES_LOCATION } = config;
   const [city] = useState(LOS_ANGELES_LOCATION.city);
+  const unit = LOS_ANGELES_LOCATION.unit;
   return (
     <Container maxWidth="md">
       <Grid container className={classes.root} spacing={2}>
         <Grid item xs={12}>
-          <CurrentWeatherInfo city={city} />
+          <CurrentWeatherInfo city={city} unit={unit} />
         </Grid>
         <Grid item xs={12}>
-          <DailyForecast city={city} />
+          <DailyForecast city={city} unit={unit} />
         </Grid>
       </Grid>
     </Container>
