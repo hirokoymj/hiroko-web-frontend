@@ -3,6 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import IconButton from "@material-ui/core/IconButton";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -43,6 +44,10 @@ export const PageFooter = () => {
       <IconButtonLink
         icon={<GitHubIcon fontSize="large" />}
         to="https://github.com/hirokoymj/hiroko-frontend"
+      />
+      <IconButtonLink
+        icon={<LinkedInIcon fontSize="large" />}
+        to="https://www.linkedin.com/in/hirokoyamaji/"
       />
     </footer>
   );
