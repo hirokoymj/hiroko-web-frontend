@@ -44,10 +44,4 @@
 - Project Name: [hiroko-web](https://console.cloud.google.com/)
 - Generated Google MAP API key for hirokoymj.com
 
-## History
 
-- 01.20.2024 - Signed in Googlel Cloud and created Google Map API key in the project.
-- 01.21.2024 - Installed `serve` package and tested a production before deployment.
-- 01.21.2024 - Created a Procfile and deployed all code into Heroku.
-- 01.22.2024 - Set up a custom domain in Heroku to replace `APPNAME-IDENTIFIER.herokuapp.com` with `www.hirokoymj.com`.
-- 01.22.2024 - Added the Heroku DNS to a domain registration company.

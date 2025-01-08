@@ -6,10 +6,12 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import { DashboardController } from "Components/DashboardController";
 import tabReducer from "./Redux/tabSlice";
+import themeReducer from "./Redux/themeSlice";
 
 const store = configureStore({
   reducer: {
     tab: tabReducer,
+    theme: themeReducer,
   },
 });
 
