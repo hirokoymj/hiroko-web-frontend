@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { useSelector } from "react-redux";
 
-import { commonTheme } from "./commonTheme";
-import { xmasTheme } from "./xmasTheme";
+import { defaultTheme } from "./defaultTheme";
+import { winterTheme } from "./winterTheme";
+import { config } from "Config/config";
+
+const { Theme } = config;
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setCurrentTheme] = useState(commonTheme);
-  const currentTheme = useSelector((state) => state.theme.currentTheme);
-
-  useEffect(() => {
-    currentTheme === "seasonal"
-      ? setCurrentTheme(xmasTheme)
-      : setCurrentTheme(commonTheme);
-  }, [currentTheme]);
-
-  console.log(`currentTheme: ${currentTheme}`);
+  const themeName = useSelector((state) => state.theme.name);
 
   return (
-    <MuiThemeProvider theme={theme}>
+    <MuiThemeProvider
+      theme={themeName === Theme.default ? defaultTheme : winterTheme}>
       <CssBaseline />
       {children}
     </MuiThemeProvider>

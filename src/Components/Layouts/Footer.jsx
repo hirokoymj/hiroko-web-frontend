@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import IconButton from "@material-ui/core/IconButton";
@@ -6,8 +6,13 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { makeStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
-import { useDispatch } from "react-redux";
-import { setTheme } from "../../Redux/themeSlice";
+import { useSelector, useDispatch } from "react-redux";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+
+import { setThemeName } from "../../Redux/themeSlice";
+import { config } from "Config/config";
+
+const { Theme } = config;
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -38,47 +43,42 @@ const IconButtonLink = ({ icon, to }) => {
 
 export const PageFooter = () => {
   const classes = useStyles();
+  const themeName = useSelector((state) => state.theme.name);
   const dispatch = useDispatch();
-  const [themeChecked, setThemeChecked] = useState(true);
-
-  // const [themeSwitch, setThemeSwitch] = React.useState({
-  //   checkedA: true,
-  // });
-
-  // const handleChange = (event) => {
-  //   console.log("handleChange");
-  //   console.log(event.target.checked);
-  //   setThemeSwitch({
-  //     checkedA: event.target.checked,
-  //   });
-  // };
 
   const handleSwitchChange = (event) => {
-    setThemeChecked(event.target.checked);
-    const themeName = event.target.checked ? "common" : "seasonal";
-    dispatch(setTheme(themeName));
+    const themeName = event.target.checked ? Theme.seasonal : Theme.default;
+    dispatch(setThemeName(themeName));
   };
 
   return (
-    <footer className={classes.footer}>
-      <Typography variant="body2" color="textSecondary">
-        &copy; {new Date().getFullYear()} hirokoymj.com All rights reserved.
-      </Typography>
-      <IconButtonLink
-        icon={<GitHubIcon fontSize="large" />}
-        to="https://github.com/hirokoymj/hiroko-frontend"
-      />
-      <IconButtonLink
-        icon={<LinkedInIcon fontSize="large" />}
-        to="https://www.linkedin.com/in/hirokoyamaji/"
-      />
+    <div>
+      <footer className={classes.footer}>
+        <Typography variant="body2" color="textSecondary">
+          &copy; {new Date().getFullYear()} hirokoymj.com All rights reserved.
+        </Typography>
+        <IconButtonLink
+          icon={<GitHubIcon fontSize="large" />}
+          to="https://github.com/hirokoymj/hiroko-frontend"
+        />
+        <IconButtonLink
+          icon={<LinkedInIcon fontSize="large" />}
+          to="https://www.linkedin.com/in/hirokoyamaji/"
+        />
+      </footer>
 
-      <Switch
-        checked={themeChecked}
-        onChange={handleSwitchChange}
-        name="checkedA"
-        inputProps={{ "aria-label": "secondary checkbox" }}
+      <FormControlLabel
+        control={
+          <Switch
+            checked={themeName === Theme.seasonal}
+            onChange={handleSwitchChange}
+            name="themeSwitch"
+            size="medium"
+            color="primary"
+          />
+        }
+        label="Theme color"
       />
-    </footer>
+    </div>
   );
 };

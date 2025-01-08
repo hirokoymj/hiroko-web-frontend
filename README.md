@@ -44,4 +44,6 @@
 - Project Name: [hiroko-web](https://console.cloud.google.com/)
 - Generated Google MAP API key for hirokoymj.com
 
+## Reference:
 
+https://stackoverflow.com/questions/64228744/how-to-pin-redux-dev-tools-extension-window-to-the-chrome-browser

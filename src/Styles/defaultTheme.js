@@ -1,6 +1,6 @@
 import { createTheme } from "@material-ui/core/styles";
 
-export const commonTheme = createTheme({
+export const defaultTheme = createTheme({
   palette: {
     primary: {
       light: "#4dabf5",

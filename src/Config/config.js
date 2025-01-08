@@ -22,4 +22,8 @@ export const config = {
     TypeScript: "TypeScript",
     Miscellaneous: "Miscellaneous",
   },
+  Theme: {
+    default: "default",
+    seasonal: "seasonal",
+  },
 };

@@ -10,7 +10,7 @@ export const tabSlice = createSlice({
       state.value = action.payload;
     },
     resetActiveTab: (state) => {
-      state.value = 0;
+      state.value = 1;
     },
   },
 });

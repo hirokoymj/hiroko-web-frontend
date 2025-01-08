@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { config } from "Config/config";
+
+const { Theme } = config;
 
 export const themeSlice = createSlice({
   name: "theme",
-  initialState: { currentTheme: "common" },
+  initialState: { name: Theme.default },
   reducers: {
-    setTheme: (state, action) => {
-      state.currentTheme = action.payload;
-    },
-    resetTheme: (state) => {
-      state.currentTheme = "";
+    setThemeName: (state, action) => {
+      state.name = action.payload;
     },
   },
 });
 
-export const { setTheme, resetTheme } = themeSlice.actions;
+export const { setThemeName } = themeSlice.actions;
 
 export default themeSlice.reducer;
