@@ -12,6 +12,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 import { Logo } from "Components/Layouts/Logo";
 import { MainNavItems, SecondaryNavItems } from "Components/Lists/Navigations";
+import { ThemeSwitch } from "Components/Layouts/Switch";
 
 const drawerWidth = 240;
 
@@ -120,6 +121,7 @@ export const DashboardHeader = ({
             <MenuIcon />
           </IconButton>
           <Logo />
+          <ThemeSwitch />
         </Toolbar>
       </AppBar>
       <Drawer

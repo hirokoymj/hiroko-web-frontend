@@ -9,9 +9,9 @@ export const winterTheme = createTheme({
       contrastText: "#fff",
     },
     secondary: {
-      light: "#b7deb8",
-      main: "#a5d6a7",
-      dark: "#6fbf73",
+      light: "#f6685e",
+      main: "#f44336",
+      dark: "#aa2e25",
       contrastText: "#fff",
     },
     text: {
