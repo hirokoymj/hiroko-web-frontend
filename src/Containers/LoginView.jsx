@@ -45,7 +45,7 @@ export const LoginView = () => {
   const onSubmit = async ({ email, password }) => {
     await doSignInWithEmailAndPassword(email, password).catch((error) => {
       if (error.code === "auth/user-not-found") {
-        setError(`${error.code} - There no user exist with that email`);
+        setError(`${error.code} - There is no user exist with that email`);
       } else {
         setError(`${error.code} `);
       }
