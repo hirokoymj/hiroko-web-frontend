@@ -18,3 +18,8 @@ export const subCategoryFormSchema = yup.object().shape({
   name: yup.string().required("Sub Category name is required field."),
   order: yup.string().optional(),
 });
+
+export const testFormSchema = yup.object().shape({
+  email: yup.string().required("email is required").email(),
+  password: yup.string().required("password is required"),
+});

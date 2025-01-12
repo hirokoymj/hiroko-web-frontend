@@ -12,6 +12,7 @@ const { Theme } = config;
 const useStyles = makeStyles((theme) => ({
   switch: {
     paddingLeft: theme.spacing(4),
+    flex: 1,
   },
 }));
 

@@ -9,10 +9,12 @@ import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import Button from "@material-ui/core/Button";
 
 import { Logo } from "Components/Layouts/Logo";
 import { MainNavItems, SecondaryNavItems } from "Components/Lists/Navigations";
 import { ThemeSwitch } from "Components/Layouts/Switch";
+import { LoginHeader } from "Components/Headers/LoginHeader";
 
 const drawerWidth = 240;
 
@@ -122,6 +124,7 @@ export const DashboardHeader = ({
           </IconButton>
           <Logo />
           <ThemeSwitch />
+          <LoginHeader />
         </Toolbar>
       </AppBar>
       <Drawer

@@ -2,7 +2,7 @@ import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import TextField from "@material-ui/core/TextField";
 
-export const FormInputText = ({ name, label, type, placeholder }) => {
+export const FormInputText = ({ name, label, type, placeholder, style }) => {
   const { control } = useFormContext();
   return (
     <Controller
@@ -19,6 +19,7 @@ export const FormInputText = ({ name, label, type, placeholder }) => {
           variant="outlined"
           type={type ? type : "text"}
           placeholder={placeholder || placeholder}
+          style={{ ...style }}
         />
       )}
     />

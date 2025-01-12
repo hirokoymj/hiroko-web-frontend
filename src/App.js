@@ -5,6 +5,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 import { DashboardController } from "Components/DashboardController";
+import { AuthProvider } from "contexts/authContext";
 import tabReducer from "./Redux/tabSlice";
 import themeReducer from "./Redux/themeSlice";
 
@@ -24,11 +25,13 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <ReduxProvider store={store}>
-        <ThemeProvider>
-          <BrowserRouter>
-            <DashboardController />
-          </BrowserRouter>
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <BrowserRouter>
+              <DashboardController />
+            </BrowserRouter>
+          </ThemeProvider>
+        </AuthProvider>
       </ReduxProvider>
     </ApolloProvider>
   );
