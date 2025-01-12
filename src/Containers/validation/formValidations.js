@@ -19,7 +19,7 @@ export const subCategoryFormSchema = yup.object().shape({
   order: yup.string().optional(),
 });
 
-export const testFormSchema = yup.object().shape({
+export const loginFormSchema = yup.object().shape({
   email: yup.string().required("email is required").email(),
   password: yup.string().required("password is required"),
 });

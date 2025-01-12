@@ -8,13 +8,13 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
+import { FormInputText } from "Components/Forms/FormInputText";
 import {
   doSignInWithEmailAndPassword,
   doSignInWithGoogle,
 } from "../firebase/auth";
 import { useAuth } from "contexts/authContext";
-import { testFormSchema } from "./validation/formValidations";
-import { FormInputText } from "Components/Forms/FormInputText";
+import { loginFormSchema } from "./validation/formValidations";
 
 import "./google.css";
 
@@ -33,7 +33,7 @@ export const LoginView = () => {
   const { userLoggedIn } = useAuth();
   const [error, setError] = useState("");
   const methods = useForm({
-    resolver: yupResolver(testFormSchema),
+    resolver: yupResolver(loginFormSchema),
     defaultValues: { email: "", password: "" },
   });
 
