@@ -13,6 +13,7 @@ import { SubCategoryView } from "Containers/SubCategoryView";
 import { TopicView } from "Containers/TopicView";
 import { LoginView } from "Containers/LoginView";
 import { Register } from "Containers/Register";
+import { RegisterView } from "Containers/RegisterView";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -75,8 +76,9 @@ export const DashboardController = () => {
               <Route path="category/*" element={<CategoryView />} />
               <Route path="subCategory/*" element={<SubCategoryView />} />
               <Route path="topic/*" element={<TopicView />} />
-              <Route path="register" element={<Register />} />
               <Route path="login" element={<LoginView />} />
+              <Route path="register" element={<Register />} />
+              <Route path="registerView" element={<RegisterView />} />
             </Routes>
           </Grid>
           <Grid item xs={12}>

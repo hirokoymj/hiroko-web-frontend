@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import { Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
@@ -25,6 +26,14 @@ const useStyles = makeStyles((theme) => ({
   },
   error: {
     color: "red",
+  },
+  submit: {
+    marginBottom: theme.spacing(4),
+  },
+  text: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    textAlign: "center",
   },
 }));
 
@@ -85,21 +94,16 @@ export const LoginView = () => {
             variant="contained"
             color="primary"
             fullWidth
-            style={{ marginBottom: "8px" }}
+            className={classes.submit}
             onClick={handleSubmit(onSubmit)}>
             {isSubmitting ? "submitting" : "submit"}
           </Button>
         </FormProvider>
-        <Box component="section" m={1}>
-          Don't have an account?{" "}
-          <Link to={"/register"} className="hover:underline font-bold">
-            Sign up
-          </Link>
-          <p>OR</p>
-        </Box>
-        <Box component="section" m={1}>
-          <GoogleSignInBtn onClick={onGoogleSignIn} />
-        </Box>
+        <Typography align="center">
+          DON'T HAVE AN ACCOUNT? <Link to={"/register"}>Sign up</Link>
+        </Typography>
+        <Typography className={classes.text}>OR</Typography>
+        <GoogleSignInBtn onClick={onGoogleSignIn} />
       </Container>
     </>
   );

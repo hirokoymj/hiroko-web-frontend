@@ -4,46 +4,59 @@
 
 ## Technologies
 
-**Front-End**
+**Frontend**
 
-- React.js
-- Redux Toolkit
 - JavaScript
-- Apollo Client v3
+- React.js (version 17)
+- React Hooks, React Context
 - React Router v6
-- Matrial UI v4
+- Redux Toolkit
+- Apollo Client v3
 - Google Map API
+- Firebase Authentication for Google
+- React Hook Form
 
-**Back-End**
+**Backend** - https://github.com/hirokoymj/hiroko-web-backend-new
 
+- Typescript
 - Node.js
 - Apollo Server v3
-- MongoDB Atlas/Mongoose
+- Mongoose
 - Weather API
-- Typescript
 
-## Backend API
+**Database**
 
-- GraphQL Backend URI: https://hiroko-web-backend-new-08d39ee2590b.herokuapp.com/
-- GraphQL Backend repository: https://github.com/hirokoymj/hiroko-web-backend-new
+- MongoDB
 
-# Cloud Platform
+## Google Cloud Platform(GCP)
 
-**Heroku**
+![](./src/Assets/gcp-IdentityPlatform.png)
 
-|          | Description                             |
-| -------- | --------------------------------------- |
-| Region   | United States                           |
-| Plan     | Basic (Max of $7.00/month)              |
-| Runtime  | Node.js                                 |
-| App Name | hiroko-web-frontend, hiroko-web-backend |
-| Features | Heroku CLI, Custom Domain               |
+<hr />
 
-**Google Cloud**
+![](./src/Assets/gcp-google-map-api.png)
 
-- Project Name: [hiroko-web](https://console.cloud.google.com/)
-- Generated Google MAP API key for hirokoymj.com
+## References
 
-## Reference:
+- https://redux.js.org/introduction/getting-started
+- https://fir-ui-demo-84a6c.firebaseapp.com/
+- https://github.com/firebase/firebaseui-web
+- https://firebase.google.com/docs/reference/js
+- https://react-hook-form.com/
+- https://github.com/jquense/yup
+- https://firebase.google.com/docs/auth/web/google-signin
+- https://reactrouter.com/home
+- https://react.dev/reference/react/createContext
+- https://mui.com/material-ui/getting-started/
+- https://devcenter.heroku.com/articles/heroku-cli
 
-https://stackoverflow.com/questions/64228744/how-to-pin-redux-dev-tools-extension-window-to-the-chrome-browser
+## Deploy app on Heroku
+
+```js
+git heroku login
+git push heroku master
+
+git remote -v
+heroku  https://git.heroku.com/hiroko-web-frontend.git (fetch)
+heroku  https://git.heroku.com/hiroko-web-frontend.git (push)
+```
