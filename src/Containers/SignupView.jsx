@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
-import { Button } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { makeStyles } from "@material-ui/core/styles";
-
+import Divider from "@material-ui/core/Divider";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormInputText } from "Components/Forms/FormInputText";
@@ -23,9 +23,15 @@ const useStyles = makeStyles((theme) => ({
   error: {
     color: "red",
   },
+  submit: {
+    marginBottom: theme.spacing(4),
+  },
+  divider: {
+    marginBottom: theme.spacing(2),
+  },
 }));
 
-export const RegisterView = () => {
+export const SignupView = () => {
   const classes = useStyles();
   const { userLoggedIn } = useAuth();
   const [error, setError] = useState("");
@@ -39,12 +45,11 @@ export const RegisterView = () => {
     formState: { isSubmitting },
   } = methods;
 
-  const onSubmit = async (values) => {
-    const { email, password, confirmPassword } = values;
+  const onSubmit = async ({ email, password }) => {
     console.log("onSubmit");
-    // await doCreateUserWithEmailAndPassword(email, password).catch((error) => {
-    //   setError(error.code);
-    // });
+    await doCreateUserWithEmailAndPassword(email, password).catch((error) => {
+      setError(error.code);
+    });
   };
 
   return (
@@ -71,7 +76,7 @@ export const RegisterView = () => {
           />
           <FormInputText
             label="Confirm Password"
-            name="confirmPassword"
+            name="passwordConfirmation"
             type="password"
             style={{ marginBottom: "16px" }}
           />
@@ -80,11 +85,15 @@ export const RegisterView = () => {
             variant="contained"
             color="primary"
             fullWidth
-            style={{ marginBottom: "8px" }}
+            className={classes.submit}
             onClick={handleSubmit(onSubmit)}>
             {isSubmitting ? "Signing Up..." : "Sign Up"}
           </Button>
         </FormProvider>
+        <Divider className={classes.divider} />
+        <Typography align="center">
+          Already have an account? <Link to={"/login"}>Login</Link>
+        </Typography>
       </Container>
     </>
   );

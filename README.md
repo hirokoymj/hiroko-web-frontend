@@ -41,7 +41,7 @@
 
 **Implementing Google Map in your site**
 
-- GCP Console -> APIs & Services -> Enable `Maps JavaScript API`
+- GCP console -> APIs & Services -> Enable `Maps JavaScript API`
 
 ```js
 $gcloud services list --enabled

@@ -5,7 +5,6 @@ import Paper from "@material-ui/core/Paper";
 import { Button } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
@@ -100,7 +99,7 @@ export const LoginView = () => {
           </Button>
         </FormProvider>
         <Typography align="center">
-          DON'T HAVE AN ACCOUNT? <Link to={"/register"}>Sign up</Link>
+          DON'T HAVE AN ACCOUNT? <Link to={"/signup"}>Sign up</Link>
         </Typography>
         <Typography className={classes.text}>OR</Typography>
         <GoogleSignInBtn onClick={onGoogleSignIn} />

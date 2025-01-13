@@ -27,5 +27,8 @@ export const loginFormSchema = yup.object().shape({
 export const registerFormSchema = yup.object().shape({
   email: yup.string().required("email is required").email(),
   password: yup.string().required("password is required"),
-  confirmedPassword: yup.string().required("Confirmed password is required"),
+  passwordConfirmation: yup
+    .string()
+    .required("Password confirmation is required")
+    .oneOf([yup.ref("password")], "Your passwords do not match."),
 });
