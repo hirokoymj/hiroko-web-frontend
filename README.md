@@ -26,15 +26,40 @@
 
 **Database**
 
-- MongoDB
+- MongoDB Atlas
 
 ## Google Cloud Platform(GCP)
+
+**Implementing Google Account Authentication**
+
+1. Firebase console -> Create a app -> Authentication -> Add new provider -> Google
+2. GCP console -> Identity Platform -> Providers -> Edit Google -> Add domain (www.hirokoymj.com)
 
 ![](./src/Assets/gcp-IdentityPlatform.png)
 
 <hr />
 
+**Implementing Google Map in your site**
+
+- GCP Console -> APIs & Services -> Enable `Maps JavaScript API`
+
+```js
+$gcloud services list --enabled
+maps-backend.googleapis.com                  Maps JavaScript API
+```
+
 ![](./src/Assets/gcp-google-map-api.png)
+
+## Deploy this app to Heroku
+
+```js
+git heroku login
+git push heroku master
+
+git remote -v
+heroku  https://git.heroku.com/hiroko-web-frontend.git (fetch)
+heroku  https://git.heroku.com/hiroko-web-frontend.git (push)
+```
 
 ## References
 
@@ -49,14 +74,3 @@
 - https://react.dev/reference/react/createContext
 - https://mui.com/material-ui/getting-started/
 - https://devcenter.heroku.com/articles/heroku-cli
-
-## Deploy app on Heroku
-
-```js
-git heroku login
-git push heroku master
-
-git remote -v
-heroku  https://git.heroku.com/hiroko-web-frontend.git (fetch)
-heroku  https://git.heroku.com/hiroko-web-frontend.git (push)
-```
