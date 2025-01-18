@@ -32,7 +32,7 @@
 
 **Implementing Google Account Authentication**
 
-1. Firebase console -> Create a app -> Authentication -> Add new provider -> Google
+1. Firebase console -> Add app -> Web -> Add Firebase to your web app -> Authentication -> Add new provider -> Google -> `npm install firebase` -> Copy Firebase config code in your app.
 2. GCP console -> Identity Platform -> Providers -> Edit Google -> Add domain (www.hirokoymj.com)
 
 ![](./src/Assets/gcp-IdentityPlatform.png)
@@ -41,7 +41,7 @@
 
 **Implementing Google Map in your site**
 
-- GCP console -> APIs & Services -> Enable `Maps JavaScript API`
+- GCP console -> APIs & Services -> Enable `Maps JavaScript API` -> Add key in the component `<GoogleMapReact bootstrapURLKeys={{ key: "" }}>`
 
 ```js
 $gcloud services list --enabled

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Navigate, Link } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
-import { Button } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
@@ -29,10 +30,8 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     marginBottom: theme.spacing(4),
   },
-  text: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    textAlign: "center",
+  link: {
+    paddingLeft: theme.spacing(1),
   },
 }));
 
@@ -99,9 +98,23 @@ export const LoginView = () => {
           </Button>
         </FormProvider>
         <Typography align="center">
-          DON'T HAVE AN ACCOUNT? <Link to={"/signup"}>Sign up</Link>
+          Don't have an account?
+          <Link to={"/signup"} className={classes.link}>
+            Sign up
+          </Link>
         </Typography>
-        <Typography className={classes.text}>OR</Typography>
+        <Box
+          display="flex"
+          flexDirection="row"
+          m={0}
+          paddingBottom={2}
+          paddingTop={2}
+          justifyContent="space-between"
+          alignItems="center">
+          <Divider style={{ width: "45%" }} />
+          or
+          <Divider style={{ width: "45%" }} />
+        </Box>
         <GoogleSignInBtn onClick={onGoogleSignIn} />
       </Container>
     </>
