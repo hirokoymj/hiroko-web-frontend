@@ -1,10 +1,10 @@
 import { useQuery, useMutation } from "@apollo/client";
 import { useSnackbar } from "notistack";
 
-import { CREATE_SUB_CATEGORY } from "Mutations/SubCategory";
-import { SUB_CATEGORY_ALL } from "Queries/SubCategory";
-import { CATEGORY_ALL } from "Queries/Category";
-import { makeDropdownOptions } from "Components/FormController/common";
+import { CREATE_SUB_CATEGORY } from "mutations/SubCategory";
+import { SUB_CATEGORY_ALL } from "queries/SubCategory";
+import { CATEGORY_ALL } from "queries/Category";
+import { makeDropdownOptions } from "components/FormController/common";
 
 export const useSubCategoryForm = () => {
   const { enqueueSnackbar } = useSnackbar();

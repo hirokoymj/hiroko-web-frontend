@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 import { defaultTheme } from "./defaultTheme";
 import { winterTheme } from "./winterTheme";
-import { config } from "Config/config";
+import { config } from "config/config";
 
 const { Theme } = config;
 

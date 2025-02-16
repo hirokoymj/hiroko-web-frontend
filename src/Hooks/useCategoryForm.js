@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
 import { useSnackbar } from "notistack";
 
-import { CREATE_CATEGORY } from "Mutations/Category";
-import { CATEGORY_ALL } from "Queries/Category";
+import { CREATE_CATEGORY } from "mutations/Category";
+import { CATEGORY_ALL } from "queries/Category";
 
 export const useCategoryForm = () => {
   const { enqueueSnackbar } = useSnackbar();

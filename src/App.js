@@ -1,13 +1,13 @@
-import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "Styles/ThemeProvider";
+import { ThemeProvider } from "styles/ThemeProvider";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { Provider as ReduxProvider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-
-import { DashboardController } from "Components/DashboardController";
+import { RouterProvider } from "react-router-dom";
 import { AuthProvider } from "contexts/authContext";
-import tabReducer from "./Redux/tabSlice";
-import themeReducer from "./Redux/themeSlice";
+
+import tabReducer from "./redux/tabSlice";
+import themeReducer from "./redux/themeSlice";
+import { router } from "routes/router";
 
 const store = configureStore({
   reducer: {
@@ -27,9 +27,7 @@ const App = () => {
       <ReduxProvider store={store}>
         <AuthProvider>
           <ThemeProvider>
-            <BrowserRouter>
-              <DashboardController />
-            </BrowserRouter>
+            <RouterProvider router={router} />
           </ThemeProvider>
         </AuthProvider>
       </ReduxProvider>

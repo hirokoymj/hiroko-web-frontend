@@ -3,9 +3,9 @@ import get from "lodash/get";
 import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router-dom";
 
-import { UPDATE_SUB_CATEGORY } from "Mutations/SubCategory";
-import { SUB_CATEGORY_BY_ID } from "Queries/SubCategory";
-import { CATEGORY_ALL } from "Queries/Category";
+import { UPDATE_SUB_CATEGORY } from "mutations/SubCategory";
+import { SUB_CATEGORY_BY_ID } from "queries/SubCategory";
+import { CATEGORY_ALL } from "queries/Category";
 
 export const useSubCategoryEditForm = (subCategoryId) => {
   const { enqueueSnackbar } = useSnackbar();

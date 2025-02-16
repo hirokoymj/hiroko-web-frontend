@@ -3,11 +3,11 @@ import get from "lodash/get";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 
-import { UPDATE_TOPIC } from "Mutations/Topic";
-import { CATEGORY_ALL } from "Queries/Category";
-import { TOPIC_BY_ID } from "Queries/Topic";
-import { SUB_CATEGORY_BY_CATEGORY } from "Queries/SubCategory";
-import { makeDropdownOptions } from "Components/FormController/common";
+import { UPDATE_TOPIC } from "mutations/Topic";
+import { CATEGORY_ALL } from "queries/Category";
+import { TOPIC_BY_ID } from "queries/Topic";
+import { SUB_CATEGORY_BY_CATEGORY } from "queries/SubCategory";
+import { makeDropdownOptions } from "components/FormController/common";
 
 export const useTopicEditForm = (topicId, categoryId) => {
   const navigate = useNavigate();

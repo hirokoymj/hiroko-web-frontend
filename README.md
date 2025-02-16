@@ -35,7 +35,7 @@
 1. Firebase console -> Add app -> Web -> Add Firebase to your web app -> Authentication -> Add new provider -> Google -> `npm install firebase` -> Copy Firebase config code in your app.
 2. GCP console -> Identity Platform -> Providers -> Edit Google -> Add domain (www.hirokoymj.com)
 
-![](./src/Assets/gcp-IdentityPlatform.png)
+![](./src/assets/gcp-IdentityPlatform.png)
 
 <hr />
 
@@ -48,7 +48,7 @@ $gcloud services list --enabled
 maps-backend.googleapis.com                  Maps JavaScript API
 ```
 
-![](./src/Assets/gcp-google-map-api.png)
+![](./src/assets/gcp-google-map-api.png)
 
 ## Deploy this app to Heroku
 

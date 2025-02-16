@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import { CategoryFragments } from "../Queries/CategoryFragments";
+import { CategoryFragments } from "../queries/CategoryFragments";
 
 export const CREATE_SUB_CATEGORY = gql`
   mutation CreateSubCategory($input: createSubCategoryInput!) {

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { config } from "Config/config";
+import { config } from "config/config";
 
 const { Theme } = config;
 
