@@ -96,11 +96,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const DashboardHeader = ({
-  open,
-  handleDrawerOpen,
-  handleDrawerClose,
-}) => {
+export const PageHeader = ({ open, handleDrawerOpen, handleDrawerClose }) => {
   const classes = useStyles();
   // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 

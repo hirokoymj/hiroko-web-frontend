@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 
-import { DashboardHeader } from "pages/base/DashboardHeader";
+import { PageHeader } from "pages/base/PageHeader";
 import { PageFooter } from "pages/base/PageFooter";
 
 const useStyles = makeStyles((theme) => ({
@@ -53,7 +53,7 @@ export const RootLayout = () => {
 
   return (
     <div className={classes.root}>
-      <DashboardHeader
+      <PageHeader
         open={open}
         handleDrawerOpen={handleDrawerOpen}
         handleDrawerClose={handleDrawerClose}
