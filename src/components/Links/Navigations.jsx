@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 import { ListItemLink } from "components/Lists/ListItemLink";
 import { setActiveTab } from "../../redux/tabSlice";
+import Button from "@material-ui/core/Button";
 
 export const MainNavItems = () => {
   const dispatch = useDispatch();
@@ -40,5 +41,17 @@ export const SecondaryNavItems = () => {
         icon={<DescriptionOutlinedIcon />}
       />
     </>
+  );
+};
+
+export const ThirdNavItem = () => {
+  return (
+    <Button
+      variant="contained"
+      href="/resume-ReactJS.pdf"
+      target="_blank"
+      rel="noopener noreferrer">
+      Resume
+    </Button>
   );
 };
