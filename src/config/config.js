@@ -15,7 +15,7 @@ export const config = {
     GraphQL: "GraphQL",
     Git: "Git Commands",
     HTMLCSS: "HTML/CSS",
-    TypeScript: "TypeScript",
+    ts: "TypeScript",
     Miscellaneous: "Miscellaneous",
   },
   Theme: {
