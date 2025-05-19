@@ -37,9 +37,10 @@ export const TechLayout = () => {
         <Tab label={TabNames.React} component={Link} to="react" value={0} />
         <Tab label={TabNames.JavaScript} component={Link} to="js" value={1} />
         <Tab label={TabNames.ts} component={Link} to="ts" value={2} />
-        <Tab label={TabNames.GraphQL} component={Link} to="graphQL" value={3} />
-        <Tab label={TabNames.Git} component={Link} to="git" value={4} />
-        <Tab label={TabNames.HTMLCSS} component={Link} to="html" value={5} />
+        <Tab label={TabNames.express} component={Link} to="express" value={3} />
+        <Tab label={TabNames.GraphQL} component={Link} to="graphQL" value={4} />
+        <Tab label={TabNames.Git} component={Link} to="git" value={5} />
+        <Tab label={TabNames.HTMLCSS} component={Link} to="html" value={6} />
       </Tabs>
       <Outlet />
     </Paper>

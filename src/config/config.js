@@ -12,6 +12,7 @@ export const config = {
   TabNames: {
     React: "React.js",
     JavaScript: "JavaScript",
+    express: "express",
     GraphQL: "GraphQL",
     Git: "Git Commands",
     HTMLCSS: "HTML/CSS",
