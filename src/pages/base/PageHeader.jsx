@@ -145,8 +145,6 @@ export const PageHeader = ({ open, handleDrawerOpen, handleDrawerClose }) => {
         <List>
           <SecondaryNavItems />
         </List>
-        <Divider />
-        <ThirdNavItem />
       </Drawer>
     </>
   );

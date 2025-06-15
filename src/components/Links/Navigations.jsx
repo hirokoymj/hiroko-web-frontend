@@ -43,15 +43,3 @@ export const SecondaryNavItems = () => {
     </>
   );
 };
-
-export const ThirdNavItem = () => {
-  return (
-    <Button
-      variant="contained"
-      href="/resume-HirokoYamaji.pdf"
-      target="_blank"
-      rel="noopener noreferrer">
-      Resume
-    </Button>
-  );
-};

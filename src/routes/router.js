@@ -19,6 +19,7 @@ import { TopicEditView } from "pages/topic/TopicEditView";
 import { TechView } from "pages/tech/TechView";
 import { LoginView } from "pages/auth/LoginView";
 import { SignupView } from "pages/auth/SignupView";
+import { TodoView } from "pages/TodoView";
 import { NotFound } from "pages/base/NotFound";
 
 export const router = createBrowserRouter(
@@ -42,6 +43,7 @@ export const router = createBrowserRouter(
       </Route>
       <Route path="login" element={<LoginView />} />
       <Route path="signup" element={<SignupView />} />
+      <Route path="todo" element={<TodoView />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   )

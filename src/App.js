@@ -7,12 +7,14 @@ import { AuthProvider } from "contexts/authContext";
 
 import tabReducer from "./redux/tabSlice";
 import themeReducer from "./redux/themeSlice";
+import todoReducer from "./redux/todoSlice";
 import { router } from "routes/router";
 
 const store = configureStore({
   reducer: {
     tab: tabReducer,
     theme: themeReducer,
+    todos: todoReducer,
   },
 });
 
