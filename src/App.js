@@ -5,7 +5,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { RouterProvider } from "react-router-dom";
 import { AuthProvider } from "contexts/authContext";
 
-import tabReducer from "./redux/tabSlice";
+import tabReducer from "./redux/techTabSlice";
 import themeReducer from "./redux/themeSlice";
 import todoReducer from "./redux/todoSlice";
 import { router } from "routes/router";

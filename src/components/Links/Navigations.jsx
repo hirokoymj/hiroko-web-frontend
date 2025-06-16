@@ -4,8 +4,7 @@ import CloudOutlinedIcon from "@material-ui/icons/CloudOutlined";
 import { useDispatch } from "react-redux";
 
 import { ListItemLink } from "components/Lists/ListItemLink";
-import { setActiveTab } from "../../redux/tabSlice";
-import Button from "@material-ui/core/Button";
+import { setActiveTab } from "../../redux/techTabSlice";
 
 export const MainNavItems = () => {
   const dispatch = useDispatch();

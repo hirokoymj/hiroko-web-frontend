@@ -11,11 +11,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 import { Logo } from "components/Logo/Logo";
-import {
-  MainNavItems,
-  SecondaryNavItems,
-  ThirdNavItem,
-} from "components/Links/Navigations";
+import { MainNavItems, SecondaryNavItems } from "components/Links/Navigations";
 import { ThemeSwitch } from "components/Switchs/Switch";
 import { LoginButton } from "pages/auth/LoginButton";
 

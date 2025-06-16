@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const tabSlice = createSlice({
+export const techTabSlice = createSlice({
   name: "tab",
   initialState: {
-    value: 1,
+    value: 0,
   },
   reducers: {
     setActiveTab: (state, action) => {
@@ -15,5 +15,5 @@ export const tabSlice = createSlice({
   },
 });
 
-export const { setActiveTab, resetActiveTab } = tabSlice.actions;
-export default tabSlice.reducer;
+export const { setActiveTab, resetActiveTab } = techTabSlice.actions;
+export default techTabSlice.reducer;
