@@ -35,6 +35,12 @@
 1. Firebase console -> Add app -> Web -> Add Firebase to your web app -> Authentication -> Add new provider -> Google -> `npm install firebase` -> Copy Firebase config code in your app.
 2. GCP console -> Identity Platform -> Providers -> Edit Google -> Add domain (www.hirokoymj.com)
 
+- [Offical Doc: Signing in users with Google](https://cloud.google.com/identity-platform/docs/web/google)
+- [auth.js](./src/firebase/auth.js)
+- [firebase.js](./src/firebase/firebase.js)
+
+<br />
+
 ![](./src/assets/gcp-IdentityPlatform.png)
 
 <hr />
@@ -76,3 +82,40 @@ heroku  https://git.heroku.com/hiroko-web-frontend.git (push)
 - https://devcenter.heroku.com/articles/heroku-cli
 - https://stackoverflow.com/questions/73158715/how-do-i-set-a-route-as-an-index-if-it-requires-a-parameter
 - https://stackoverflow.com/questions/6899582/i-change-the-capitalization-of-a-directory-and-git-doesnt-seem-to-pick-up-on-it
+
+###
+
+https://firebase.google.com/docs/auth/web/google-signin
+
+- [](./src/firebase/auth.js)
+- [](./src/firebase/firebase.js)
+
+```js
+import { getAuth, getRedirectResult, GoogleAuthProvider } from 'firebase/auth';
+
+const auth = getAuth();
+getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+```
+
+Google provider's OAuth token
+//https://stackoverflow.com/questions/71119092/do-i-need-to-send-google-oauth-access-token-and-id-token-to-my-backend-server

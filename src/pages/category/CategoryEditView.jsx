@@ -1,13 +1,12 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { SimpleDrawer } from "components/Dialog/SimpleDrawer";
-import { CategoryEditForm } from "pages/category/CategoryEditForm";
-import { useCategoryEditForm } from "hooks/useCategoryEditForm";
+import { SimpleDrawer } from 'components/Dialog/SimpleDrawer';
+import { CategoryEditForm } from 'pages/category/CategoryEditForm';
+import { useCategoryEditForm } from 'hooks/useCategoryEditForm';
 
 export const CategoryEditView = () => {
-  console.log("CategoryEditView");
   const { id } = useParams();
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ export const CategoryEditView = () => {
 
   const onClose = () => {
     setOpen(false);
-    navigate("/category");
+    navigate('/category');
   };
 
   return (

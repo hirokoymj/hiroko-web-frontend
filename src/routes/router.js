@@ -3,24 +3,30 @@ import {
   createRoutesFromElements,
   Route,
   Navigate,
-} from "react-router-dom";
+} from 'react-router-dom';
 //Layouts
-import { RootLayout } from "layouts/RootLayout";
-import { CategoryLayout } from "layouts/CategoryLayout";
-import { SubCategoryLayout } from "layouts/SubCategoryLayout";
-import { TopicLayout } from "layouts/TopicLayout";
-import { TechLayout } from "layouts/TechLayout";
-import { WeatherLayout } from "layouts/WeatherLayout";
+import { RootLayout } from 'layouts/RootLayout';
+import { CategoryLayout } from 'layouts/CategoryLayout';
+import { SubCategoryLayout } from 'layouts/SubCategoryLayout';
+import { TopicLayout } from 'layouts/TopicLayout';
+import { TechLayout } from 'layouts/TechLayout';
+import { WeatherLayout } from 'layouts/WeatherLayout';
+import { TestLayout } from 'layouts/TestLayout';
 //View
-import { WeatherView } from "pages/weather/WeatherView";
-import { CategoryEditView } from "pages/category/CategoryEditView";
-import { SubCategoryEditView } from "pages/subCategory/SubCategoryEditView";
-import { TopicEditView } from "pages/topic/TopicEditView";
-import { TechView } from "pages/tech/TechView";
-import { LoginView } from "pages/auth/LoginView";
-import { SignupView } from "pages/auth/SignupView";
-import { TodoView } from "pages/TodoView";
-import { NotFound } from "pages/base/NotFound";
+import { WeatherView } from 'pages/weather/WeatherView';
+import { CategoryEditView } from 'pages/category/CategoryEditView';
+import { SubCategoryEditView } from 'pages/subCategory/SubCategoryEditView';
+import { TopicEditView } from 'pages/topic/TopicEditView';
+import { TechView } from 'pages/tech/TechView';
+import { LoginView } from 'pages/auth/LoginView';
+import { SignupView } from 'pages/auth/SignupView';
+import { TodoView } from 'pages/TodoView';
+import { NotFound } from 'pages/base/NotFound';
+import { TestDetailView } from 'pages/test/TestDetailView';
+
+const Demo = () => {
+  return <h1>DEMO</h1>;
+};
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,6 +50,10 @@ export const router = createBrowserRouter(
       <Route path="login" element={<LoginView />} />
       <Route path="signup" element={<SignupView />} />
       <Route path="todo" element={<TodoView />} />
+      <Route path="test" element={<TestLayout />}>
+        <Route path=":id" element={<Demo />} />
+      </Route>
+      <Route path="demo" element={<Demo />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
