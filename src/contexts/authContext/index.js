@@ -1,7 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
-import { auth } from "../../firebase/firebase";
-// import { GoogleAuthProvider } from "firebase/auth";
-import { onAuthStateChanged } from "firebase/auth";
+import React, { useContext, useState, useEffect } from 'react';
+import { auth } from '../../firebase/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const AuthContext = React.createContext();
 
@@ -21,7 +20,9 @@ export function AuthProvider({ children }) {
 
   async function initializeUser(user) {
     if (user) {
-      setCurrentUser({ ...user });
+      console.log(user);
+      const { displayName, email, accessToken } = user;
+      setCurrentUser({ displayName, email, accessToken });
       setUserLoggedIn(true);
     } else {
       setCurrentUser(null);
@@ -33,7 +34,6 @@ export function AuthProvider({ children }) {
   const value = {
     userLoggedIn,
     currentUser,
-    setCurrentUser,
   };
 
   return (
